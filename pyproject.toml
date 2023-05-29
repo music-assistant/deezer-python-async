@@ -5,7 +5,7 @@ description = "A friendly wrapper library for the Deezer API"
 authors = ["Bruno Alla <alla.brunoo@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-keywords = ["deezer", "sdk", "client", "requests"]
+keywords = ["deezer", "sdk", "client", "aiohttp"]
 repository = "https://github.com/browniebroke/deezer-python"
 documentation = "https://deezer-python.readthedocs.io"
 classifiers = [
@@ -16,7 +16,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules"
 ]
 packages = [
-    { include = "deezer_async", from = "src" },
+    { include = "deezer", from = "src" },
 ]
 
 [tool.poetry.urls]
@@ -27,7 +27,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-requests = ">=2.18"
+aiohttp = ">=3.8.4"
 
 [tool.poetry.group.docs]
 optional = true
@@ -50,7 +50,7 @@ deezer-oauth-cli = "^0.4"
 
 [tool.semantic_release]
 version_toml = "pyproject.toml:tool.poetry.version"
-version_variable = "src/deezer_async/__init__.py:__version__"
+version_variable = "src/deezer/__init__.py:__version__"
 branch = "main"
 build_command = "pip install poetry && poetry build"
 
