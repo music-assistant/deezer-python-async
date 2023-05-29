@@ -23,12 +23,12 @@ class Resource:
     _fields: tuple[str, ...]
     _fetched: bool
 
-    async def __init__(self, client, json):
+    def __init__(self, client, json):
         self.client = client
         for field_name in json.keys():
-            parse_func = await getattr(self, f"_parse_{field_name}", None)
+            parse_func = getattr(self, f"_parse_{field_name}", None)
             if callable(parse_func):
-                json[field_name] = await parse_func(json[field_name])
+                json[field_name] = parse_func(json[field_name])
         self._fields = tuple(json.keys())
         for key in json:
             setattr(self, key, json[key])
@@ -109,7 +109,7 @@ class Resource:
             **kwargs,
         )
 
-    async def __getattr__(self, item: str) -> Any:
+    def __getattr__(self, item: str) -> Any:
         """
         Called when the default attribute access fails with an AttributeError.
 
@@ -124,7 +124,7 @@ class Resource:
                 self._fields += (item,)
                 return result
             elif not getattr(self, "_fetched", False):
-                full_resource = await self.get()
+                full_resource = self.get()  # <--- WRONG
                 missing_fields = set(full_resource._fields) - set(self._fields)
                 for field_name in missing_fields:
                     setattr(self, field_name, getattr(full_resource, field_name))

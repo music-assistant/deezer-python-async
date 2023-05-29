@@ -85,8 +85,8 @@ class PaginatedList(Generic[ResourceType]):
             **self.__next_params,
         )
         self.__next_path = None
-        self.__total = await response_payload.get("total")
-        next_url = await response_payload.get("next", None)
+        self.__total = response_payload.get("total")
+        next_url = response_payload.get("next", None)
         if next_url:
             url_bits = urlparse(next_url)
             self.__next_path = url_bits.path.lstrip("/")
