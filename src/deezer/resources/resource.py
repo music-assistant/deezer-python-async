@@ -23,27 +23,27 @@ class Resource:
     _fields: tuple[str, ...]
     _fetched: bool
 
-    def __init__(self, client, json):
+    async def __init__(self, client, json):
         self.client = client
         for field_name in json.keys():
-            parse_func = getattr(self, f"_parse_{field_name}", None)
+            parse_func = await getattr(self, f"_parse_{field_name}", None)
             if callable(parse_func):
-                json[field_name] = parse_func(json[field_name])
+                json[field_name] = await parse_func(json[field_name])
         self._fields = tuple(json.keys())
         for key in json:
             setattr(self, key, json[key])
 
-    def __repr__(self):
-        name = getattr(self, "name", None)
-        title = getattr(self, "title", None)
-        id_ = getattr(self, "id", None)
+    async def __repr__(self):
+        name = await getattr(self, "name", None)
+        title = await getattr(self, "title", None)
+        id_ = await getattr(self, "id", None)
         return f"<{self.__class__.__name__}: {name or title or id_}>"
 
-    def as_dict(self) -> dict[str, Any]:
+    async def as_dict(self) -> dict[str, Any]:
         """Convert resource to dictionary."""
         result = {}
         for key in self._fields:
-            value = getattr(self, key)
+            value = await getattr(self, key)
             if isinstance(value, list):
                 value = [i.as_dict() if isinstance(i, Resource) else i for i in value]
             elif isinstance(value, Resource):
@@ -109,7 +109,7 @@ class Resource:
             **kwargs,
         )
 
-    def __getattr__(self, item: str) -> Any:
+    async def __getattr__(self, item: str) -> Any:
         """
         Called when the default attribute access fails with an AttributeError.
 
@@ -124,7 +124,7 @@ class Resource:
                 self._fields += (item,)
                 return result
             elif not getattr(self, "_fetched", False):
-                full_resource = self.get()
+                full_resource = await self.get()
                 missing_fields = set(full_resource._fields) - set(self._fields)
                 for field_name in missing_fields:
                     setattr(self, field_name, getattr(full_resource, field_name))
