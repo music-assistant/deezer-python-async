@@ -68,16 +68,16 @@ class Client:
     }
     base_url = "https://api.deezer.com"
 
-    async def __init__(
+    def __init__(
         self, app_id=None, app_secret=None, access_token=None, headers=None, **kwargs
     ):
         self.app_id = app_id
         self.app_secret = app_secret
         self.access_token = access_token
-        self.session = await aiohttp.ClientSession()
+        self.session = aiohttp.ClientSession()
 
         headers = headers or {}
-        await self.session.headers.update(headers)
+        self.session.headers.update(headers)
 
     def _process_json(
         self,
