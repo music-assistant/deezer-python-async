@@ -269,7 +269,7 @@ class Client:
         :returns: a :class:`~deezer.pagination.PaginatedList`
                   of :class:`~deezer.Editorial` objects.
         """
-        return self._get_paginated_list("editorial")
+        return await self._get_paginated_list("editorial")
 
     async def get_episode(self, episode_id: int) -> Episode:
         """
@@ -334,7 +334,7 @@ class Client:
         :returns: a :class:`~deezer.pagination.PaginatedList`
                   of :class:`~deezer.Radio` objects.
         """
-        return self._get_paginated_list("radio/top")
+        return await self._get_paginated_list("radio/top")
 
     async def get_track(self, track_id: int) -> Track:
         """
@@ -415,7 +415,7 @@ class Client:
                   of :class:`~deezer.Album` objects.
         """
         user_id_str = str(user_id) if user_id else "me"
-        return self._get_paginated_list(f"user/{user_id_str}/albums")
+        return await self._get_paginated_list(f"user/{user_id_str}/albums")
 
     async def add_user_album(self, album_id: int) -> bool:
         """
@@ -446,7 +446,7 @@ class Client:
                  of :class:`~deezer.Artist` instances.
         """
         user_id_str = str(user_id) if user_id else "me"
-        return self._get_paginated_list(f"user/{user_id_str}/artists")
+        return await self._get_paginated_list(f"user/{user_id_str}/artists")
 
     async def add_user_artist(self, artist_id: int) -> bool:
         """
@@ -477,7 +477,7 @@ class Client:
                  of :class:`~deezer.User` instances.
         """
         user_id_str = str(user_id) if user_id else "me"
-        return self._get_paginated_list(f"user/{user_id_str}/followers")
+        return await self._get_paginated_list(f"user/{user_id_str}/followers")
 
     async def get_user_followings(
         self, user_id: int | None = None
@@ -490,7 +490,7 @@ class Client:
                  of :class:`~deezer.User` instances.
         """
         user_id_str = str(user_id) if user_id else "me"
-        return self._get_paginated_list(f"user/{user_id_str}/followings")
+        return await self._get_paginated_list(f"user/{user_id_str}/followings")
 
     async def add_user_following(self, user_id: int) -> bool:
         """
@@ -517,7 +517,7 @@ class Client:
         :return: a :class:`~deezer.pagination.PaginatedList`
                  of :class:`~deezer.Track` instances.
         """
-        return self._get_paginated_list("user/me/history")
+        return await self._get_paginated_list("user/me/history")
 
     async def get_user_tracks(self, user_id: int | None = None) -> PaginatedList[Track]:
         """
@@ -528,7 +528,7 @@ class Client:
                  of :class:`~deezer.Track` instances.
         """
         user_id_str = str(user_id) if user_id else "me"
-        return self._get_paginated_list(f"user/{user_id_str}/tracks")
+        return await self._get_paginated_list(f"user/{user_id_str}/tracks")
 
     async def add_user_track(self, track_id: int) -> bool:
         """
