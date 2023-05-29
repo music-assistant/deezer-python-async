@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "deezer-python-async"
+name = "deezer-python"
 version = "5.12.0a"
 description = "A friendly wrapper library for the Deezer API"
 authors = ["Bruno Alla <alla.brunoo@gmail.com>"]
