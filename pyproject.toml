@@ -16,7 +16,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules"
 ]
 packages = [
-    { include = "deezer-deezer_async", from = "src" },
+    { include = "deezer_async", from = "src" },
 ]
 
 [tool.poetry.urls]
