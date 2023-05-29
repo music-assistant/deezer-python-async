@@ -16,7 +16,7 @@ classifiers = [
     "Topic :: Software Development :: Libraries :: Python Modules"
 ]
 packages = [
-    { include = "deezer-async", from = "src" },
+    { include = "deezer-deezer_async", from = "src" },
 ]
 
 [tool.poetry.urls]
@@ -50,7 +50,7 @@ deezer-oauth-cli = "^0.4"
 
 [tool.semantic_release]
 version_toml = "pyproject.toml:tool.poetry.version"
-version_variable = "src/deezer/__init__.py:__version__"
+version_variable = "src/deezer_async/__init__.py:__version__"
 branch = "main"
 build_command = "pip install poetry && poetry build"
 
