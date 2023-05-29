@@ -42,24 +42,26 @@ class Episode(Resource):
             return f"{self.link}?utm_source=deezer&utm_content=episode-{self.id}&utm_medium=web"
         return super()._infer_missing_field(item)
 
-    def add_bookmark(self, offset: int, **kwargs) -> bool:
+    async def add_bookmark(self, offset: int, **kwargs) -> bool:
         """
         Sets a bookmark on the episode.
 
         :param offset: The offset where the bookmark is set, must be between 0 and 100.
         :returns: a boolean that tells if the operation was successful
         """
-        return self.client.request(
+        return await self.client.request(
             "POST",
             f"episode/{self.id}/bookmark",
             offset=offset,
             **kwargs,
         )
 
-    def remove_bookmark(self, **kwargs) -> bool:
+    async def remove_bookmark(self, **kwargs) -> bool:
         """
         Removes the bookmark on the episode
 
         :returns: a boolean that tells if the operation was successful
         """
-        return self.client.request("DELETE", f"episode/{self.id}/bookmark", **kwargs)
+        return await self.client.request(
+            "DELETE", f"episode/{self.id}/bookmark", **kwargs
+        )

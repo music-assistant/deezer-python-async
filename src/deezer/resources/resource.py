@@ -55,7 +55,7 @@ class Resource:
             result[key] = value
         return result
 
-    def get_relation(self, relation, **kwargs):
+    async def get_relation(self, relation, **kwargs):
         """
         Generic method to load the relation from any resource.
 
@@ -64,40 +64,40 @@ class Resource:
         is not meant to be used directly by a client, it's more
         a helper method for the child objects.
         """
-        return self.client.request(
+        return await self.client.request(
             "GET",
             f"{self.type}/{self.id}/{relation}",
             parent=self,
             **kwargs,
         )
 
-    def post_relation(self, relation, **kwargs):
+    async def post_relation(self, relation, **kwargs):
         """
         Generic method to make a POST request to a relation from any resource.
 
         This is not meant to be used directly by a client, it's more
         a helper method for the child objects.
         """
-        return self.client.request(
+        return await self.client.request(
             "POST",
             f"{self.type}/{self.id}/{relation}",
             **kwargs,
         )
 
-    def delete_relation(self, relation, **kwargs):
+    async def delete_relation(self, relation, **kwargs):
         """
         Generic method to make a DELETE request to a relation from any resource.
 
         This is not meant to be used directly by a client, it's more
         a helper method for the child objects.
         """
-        return self.client.request(
+        return await self.client.request(
             "DELETE",
             f"{self.type}/{self.id}/{relation}",
             **kwargs,
         )
 
-    def get_paginated_list(
+    async def get_paginated_list(
         self,
         relation: str,
         **kwargs,
@@ -142,7 +142,7 @@ class Resource:
         """
         return NOT_INFERRED
 
-    def get(self):
+    async def get(self):
         """Get the resource from the API."""
         self._fetched = True
-        return self.client.request("GET", f"{self.type}/{self.id}")
+        return await self.client.request("GET", f"{self.type}/{self.id}")

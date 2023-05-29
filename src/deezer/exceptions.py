@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-import requests
+import aiohttp
 
 
 class DeezerAPIException(Exception):
@@ -12,9 +12,9 @@ class DeezerRetryableException(DeezerAPIException):
 
 
 class DeezerHTTPError(DeezerAPIException):
-    """Specialisation wrapping HTTPError from the requests library."""
+    """Specialisation wrapping HTTPError from the aiohttp library."""
 
-    def __init__(self, http_exception: requests.HTTPError, *args: object) -> None:
+    def __init__(self, http_exception: aiohttp.web.HTTPError, *args: object) -> None:
         if http_exception.response is not None and http_exception.response.text:
             url = http_exception.response.request.url
             status_code = http_exception.response.status_code
@@ -24,7 +24,7 @@ class DeezerHTTPError(DeezerAPIException):
             super().__init__(http_exception, *args)
 
     @classmethod
-    def from_http_error(cls, exc: requests.HTTPError) -> DeezerHTTPError:
+    def from_http_error(cls, exc: aiohttp.web.HTTPError) -> DeezerHTTPError:
         if exc.response.status_code in {502, 503, 504}:
             return DeezerRetryableHTTPError(exc)
         if exc.response.status_code == 403:
