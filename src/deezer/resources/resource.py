@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import datetime as dt
+from asyncio import run
 from typing import Any
 
 from ..pagination import PaginatedList
@@ -124,7 +125,7 @@ class Resource:
                 self._fields += (item,)
                 return result
             elif not getattr(self, "_fetched", False):
-                full_resource = self.get()  # <--- WRONG
+                full_resource = run(self.get())
                 missing_fields = set(full_resource._fields) - set(self._fields)
                 for field_name in missing_fields:
                     setattr(self, field_name, getattr(full_resource, field_name))
