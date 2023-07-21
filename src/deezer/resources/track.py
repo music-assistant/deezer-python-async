@@ -48,8 +48,8 @@ class Track(Resource):
 
     _parse_release_date = staticmethod(parse_date)
 
-    async def _parse_contributors(self, raw_value):
-        return [await Artist(client=self.client, json=val) for val in raw_value]
+    def _parse_contributors(self, raw_value):
+        return [Artist(client=self.client, json=val) for val in raw_value]
 
     async def get_artist(self) -> Artist:
         """

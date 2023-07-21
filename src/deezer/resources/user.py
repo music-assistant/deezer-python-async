@@ -73,7 +73,7 @@ class User(Resource):
         :param album: an :class:`~deezer.Album` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return self.delete_relation("albums", album_id=get_id(album))
+        return await self.delete_relation("albums", album_id=get_id(album))
 
     async def get_tracks(self, **kwargs) -> PaginatedList[Track]:
         """
@@ -100,7 +100,7 @@ class User(Resource):
         :param track: a :class:`~deezer.Track` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return self.delete_relation("tracks", track_id=get_id(track))
+        return await self.delete_relation("tracks", track_id=get_id(track))
 
     async def get_artists(self, **kwargs) -> PaginatedList[Artist]:
         """
@@ -127,7 +127,7 @@ class User(Resource):
         :param artist: an :class:`~deezer.Artist` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return self.delete_relation("artists", artist_id=get_id(artist))
+        return await self.delete_relation("artists", artist_id=get_id(artist))
 
     async def get_followers(self, **kwargs) -> PaginatedList[User]:
         """
@@ -163,7 +163,7 @@ class User(Resource):
         :param user: a :class:`~deezer.User` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return self.delete_relation("followings", user_id=get_id(user))
+        return await self.delete_relation("followings", user_id=get_id(user))
 
     async def get_playlists(self, **kwargs) -> PaginatedList[Playlist]:
         """
@@ -190,7 +190,7 @@ class User(Resource):
         :param playlist: a :class:`~deezer.Playlist` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return self.delete_relation("playlists", playlist_id=get_id(playlist))
+        return await self.delete_relation("playlists", playlist_id=get_id(playlist))
 
     async def create_playlist(self, title: str) -> int:
         """

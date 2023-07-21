@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import datetime as dt
-from asyncio import run
 from typing import Any
 
 from ..pagination import PaginatedList
@@ -33,12 +32,6 @@ class Resource:
         self._fields = tuple(json.keys())
         for key in json:
             setattr(self, key, json[key])
-
-    async def __repr__(self):
-        name = await getattr(self, "name", None)
-        title = await getattr(self, "title", None)
-        id_ = await getattr(self, "id", None)
-        return f"<{self.__class__.__name__}: {name or title or id_}>"
 
     async def as_dict(self) -> dict[str, Any]:
         """Convert resource to dictionary."""
@@ -103,37 +96,12 @@ class Resource:
         relation: str,
         **kwargs,
     ):
-        return PaginatedList(
+        return await PaginatedList(
             client=self.client,
             base_path=f"{self.type}/{self.id}/{relation}",
             parent=self,
             **kwargs,
-        )
-
-    def __getattr__(self, item: str) -> Any:
-        """
-        Called when the default attribute access fails with an AttributeError.
-
-        This is a fallback method, not need to call the parent implementation.
-        If the attribute is found through the normal mechanism, this is NOT called.
-        """
-        class_annotations = self.__class__.__annotations__
-        if item in class_annotations:
-            result = self._infer_missing_field(item)
-            if result is not NOT_INFERRED:
-                setattr(self, item, result)
-                self._fields += (item,)
-                return result
-            elif not getattr(self, "_fetched", False):
-                full_resource = run(self.get())
-                missing_fields = set(full_resource._fields) - set(self._fields)
-                for field_name in missing_fields:
-                    setattr(self, field_name, getattr(full_resource, field_name))
-                    self._fields += (field_name,)
-                return getattr(self, item)
-        raise AttributeError(
-            f"'{self.__class__.__name__}' object has no attribute '{item}'"
-        )
+        ).fetch()
 
     def _infer_missing_field(self, item: str) -> Any:
         """
