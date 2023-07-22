@@ -33,6 +33,12 @@ class Resource:
         for key in json:
             setattr(self, key, json[key])
 
+    def __repr__(self):
+        name = getattr(self, "name", None)
+        title = getattr(self, "title", None)
+        id_ = getattr(self, "id", None)
+        return f"<{self.__class__.__name__}: {name or title or id_}>"
+
     async def as_dict(self) -> dict[str, Any]:
         """Convert resource to dictionary."""
         result = {}
