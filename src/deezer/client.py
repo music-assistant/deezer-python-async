@@ -3,6 +3,7 @@ from __future__ import annotations
 from typing import Any
 
 import aiohttp
+from asyncio_throttle import Throttler
 
 from deezer.exceptions import (
     DeezerErrorResponse,
@@ -75,6 +76,7 @@ class Client:
         self.app_secret = app_secret
         self.access_token = access_token
         self.session = aiohttp.ClientSession()
+        self.throttler = Throttler(rate_limit=50, period=5)
 
         headers = headers or {}
         self.session.headers.update(headers)
@@ -155,11 +157,12 @@ class Client:
         """
         if self.access_token is not None:
             params["access_token"] = str(self.access_token)
-        response = await self.session.request(
-            method,
-            f"{self.base_url}/{path}",
-            params=params,
-        )
+        async with self.throttler:
+            response = await self.session.request(
+                method,
+                f"{self.base_url}/{path}",
+                params=params,
+            )
         try:
             response.raise_for_status()
         except aiohttp.web.HTTPError() as exc:
