@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "deezer-python"
-version = "5.12.0a"
+version = "6.0.0a"
 description = "A friendly wrapper library for the Deezer API"
 authors = ["Bruno Alla <alla.brunoo@gmail.com>"]
 license = "MIT"
@@ -26,8 +26,8 @@ packages = [
 "Mastodon" = "https://fosstodon.org/@browniebroke"
 
 [tool.poetry.dependencies]
-python = "^3.7"
-aiohttp = ">=3.8.4"
+python = "^3.8"
+requests = ">=2.18"
 
 [tool.poetry.group.docs]
 optional = true
@@ -36,7 +36,7 @@ optional = true
 myst-parser = ">=0.16"
 sphinx = ">=4.0"
 sphinx-autobuild = ">=2021.0"
-sphinx-rtd-theme = ">=1.0"
+furo = ">=2023.5.20"
 
 [tool.poetry.group.dev.dependencies]
 coverage = "^7.0"
@@ -45,14 +45,23 @@ pytest = "^7.0"
 pytest-cov = "^4.0"
 pytest-mock = "^3.6"
 pytest-vcr = "^1.0"
-vcrpy = "^4.1"
-deezer-oauth-cli = "^0.4"
+vcrpy = "^5.0.0"
+deezer-oauth-cli = "^1.0.0"
 
 [tool.semantic_release]
-version_toml = "pyproject.toml:tool.poetry.version"
+version_toml = ["pyproject.toml:tool.poetry.version"]
 version_variable = "src/deezer/__init__.py:__version__"
 branch = "main"
 build_command = "pip install poetry && poetry build"
+
+[tool.semantic_release.changelog]
+exclude_commit_patterns = [
+    "chore*",
+    "ci*",
+]
+
+[tool.semantic_release.changelog.environment]
+keep_trailing_newline = true
 
 [tool.pytest.ini_options]
 addopts = "-v -Wdefault --cov=deezer"
