@@ -28,7 +28,7 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = ">=2.18"
-async-throttle = "^1.0.2"
+async-throttle = "1.0.2"
 
 [tool.poetry.group.docs]
 optional = true
