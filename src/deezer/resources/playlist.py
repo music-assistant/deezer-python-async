@@ -38,6 +38,7 @@ class Playlist(Resource):
     picture_xl: str
     checksum: str
     creator: User
+    user: User
     tracks: list[Track]
 
     async def get_tracks(self, **kwargs) -> PaginatedList[Track]:

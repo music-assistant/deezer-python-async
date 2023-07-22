@@ -96,12 +96,13 @@ class Resource:
         relation: str,
         **kwargs,
     ):
-        return await PaginatedList(
+        paginated_list: PaginatedList = PaginatedList(
             client=self.client,
             base_path=f"{self.type}/{self.id}/{relation}",
             parent=self,
             **kwargs,
-        ).fetch()
+        )
+        return await paginated_list.fetch()
 
     def _infer_missing_field(self, item: str) -> Any:
         """

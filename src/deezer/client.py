@@ -178,7 +178,8 @@ class Client:
         )
 
     async def _get_paginated_list(self, path, **params):
-        return PaginatedList(client=self, base_path=path, **params)
+        paginated_list = PaginatedList(client=self, base_path=path, **params)
+        return await paginated_list.fetch()
 
     async def get_album(self, album_id: int) -> Album:
         """
