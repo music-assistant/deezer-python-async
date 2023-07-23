@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Generator, Generic, TypeVar
+from typing import AsyncGenerator, Generator, Generic, TypeVar
 from urllib.parse import parse_qs, urlparse
 
 import deezer
@@ -35,6 +35,10 @@ class PaginatedList(Generic[ResourceType]):
 
     def __iter__(self) -> Generator[ResourceType, None, None]:
         yield from self.__elements
+
+    async def __aiter__(self) -> AsyncGenerator[ResourceType, None]:
+        for element in self.__elements:
+            yield element
 
     def __next__(self) -> ResourceType:
         return next(self.__iter)
