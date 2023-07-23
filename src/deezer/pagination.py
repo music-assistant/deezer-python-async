@@ -85,11 +85,11 @@ class PaginatedList(Generic[ResourceType]):
                 **params,
             )
             self.total = response_payload["total"]
-        while self._could_grow():
+        while limit is None or limit > 0:
+            if not self._could_grow():
+                break
             await self._grow()
-            if limit:
+            if limit is not None:
                 limit -= 1
-                if limit <= 0:
-                    break
         self._fetched = True
         return self
