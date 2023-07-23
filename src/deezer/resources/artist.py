@@ -33,14 +33,14 @@ class Artist(Resource):
     radio: bool
     tracklist: str
 
-    async def get_top(self, **kwargs) -> PaginatedList[Track]:
+    async def get_top(self, limit: int = 25, **kwargs) -> PaginatedList[Track]:
         """
         Get the top tracks of an artist.
 
         :returns: a :class:`PaginatedList <deezer.PaginatedList>`
                   of :class:`Track <deezer.Track>` instances.
         """
-        return await self.get_paginated_list("top", **kwargs)
+        return (await self.get_paginated_list("top", **kwargs))[:limit]
 
     async def get_related(self, **kwargs) -> PaginatedList[Artist]:
         """

@@ -180,9 +180,11 @@ class Client:
             paginate_list=paginate_list,
         )
 
-    async def _get_paginated_list(self, path, **params):
-        paginated_list = PaginatedList(client=self, base_path=path, **params)
-        return await paginated_list.fetch()
+    async def _get_paginated_list(self, path, limit: int | None = None, **params):
+        paginated_list: PaginatedList = PaginatedList(
+            client=self, base_path=path, **params
+        )
+        return await paginated_list.fetch(limit)
 
     async def get_album(self, album_id: int) -> Album:
         """
@@ -599,6 +601,7 @@ class Client:
         query: str = "",
         strict: bool | None = None,
         ordering: str | None = None,
+        limit: int | None = 25,
         **advanced_params: str | int | None,
     ):
         optional_params = {}
@@ -618,6 +621,7 @@ class Client:
         return await self._get_paginated_list(
             path=f"search/{path}" if path else "search",
             q=" ".join(query_parts),
+            limit=limit,
             **optional_params,
         )
 

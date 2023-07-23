@@ -72,7 +72,7 @@ class PaginatedList(Generic[ResourceType]):
         while len(self.__elements) <= index and self._could_grow():
             await self._grow()
 
-    async def fetch(self) -> PaginatedList:
+    async def fetch(self, limit: int | None = None) -> PaginatedList:
         """Function to fetch the thing"""
         if self.total is None:
             params = self.__base_params.copy()
@@ -87,5 +87,9 @@ class PaginatedList(Generic[ResourceType]):
             self.total = response_payload["total"]
         while self._could_grow():
             await self._grow()
+            if limit:
+                limit -= 1
+                if limit == 0:
+                    break
         self._fetched = True
         return self
