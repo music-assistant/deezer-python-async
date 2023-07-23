@@ -601,7 +601,7 @@ class Client:
         query: str = "",
         strict: bool | None = None,
         ordering: str | None = None,
-        limit: int | None = 10,
+        limit: int | None = 5,
         **advanced_params: str | int | None,
     ):
         optional_params = {}
@@ -628,7 +628,7 @@ class Client:
     async def search(
         self,
         query: str = "",
-        limit: int | None = 10,
+        limit: int | None = 5,
         strict: bool | None = None,
         ordering: str | None = None,
         artist: str | None = None,
@@ -678,7 +678,7 @@ class Client:
     async def search_albums(
         self,
         query: str = "",
-        limit: int | None = 10,
+        limit: int | None = 5,
         strict: bool | None = None,
         ordering: str | None = None,
     ) -> PaginatedList[Album]:
@@ -701,7 +701,7 @@ class Client:
     async def search_artists(
         self,
         query: str = "",
-        limit: int | None = 10,
+        limit: int | None = 5,
         strict: bool | None = None,
         ordering: str | None = None,
     ) -> PaginatedList[Artist]:
@@ -724,7 +724,7 @@ class Client:
     async def search_playlists(
         self,
         query: str = "",
-        limit: int | None = 10,
+        limit: int | None = 5,
         strict: bool | None = None,
         ordering: str | None = None,
     ) -> PaginatedList[Playlist]:

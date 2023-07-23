@@ -89,7 +89,7 @@ class PaginatedList(Generic[ResourceType]):
             await self._grow()
             if limit:
                 limit -= 1
-                if limit == 0:
+                if limit <= 0:
                     break
         self._fetched = True
         return self
