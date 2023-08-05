@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import AsyncGenerator, Generator, Generic, TypeVar
+from typing import AsyncGenerator, Generator, Generic, TypeVar, overload
 from urllib.parse import parse_qs, urlparse
 
 import deezer
