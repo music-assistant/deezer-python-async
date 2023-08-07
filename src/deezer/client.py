@@ -141,6 +141,7 @@ class Client:
         parent: Resource | None = None,
         resource_type: type[Resource] | None = None,
         resource_id: int | None = None,
+        limit: int | None = None,
         paginate_list=False,
         **params,
     ):
@@ -155,6 +156,8 @@ class Client:
         :param paginate_list: Whether to wrap list into a pagination object.
         :param params: Query parameters to add to the request
         """
+        if limit:
+            params["limit"] = limit
         if self.access_token is not None:
             params["access_token"] = str(self.access_token)
         async with self.throttler:
@@ -601,7 +604,7 @@ class Client:
         query: str = "",
         strict: bool | None = None,
         ordering: str | None = None,
-        limit: int | None = 5,
+        limit: int | None = None,
         **advanced_params: str | int | None,
     ):
         optional_params = {}

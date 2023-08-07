@@ -49,18 +49,19 @@ class PaginatedList(Generic[ResourceType]):
     def _could_grow(self) -> bool:
         return self.__next_path is not None
 
-    async def _grow(self) -> list[ResourceType]:
-        new_elements = await self._fetch_next_page()
+    async def _grow(self, limit: int | None = None) -> list[ResourceType]:
+        new_elements = await self._fetch_next_page(limit)
         self.__elements.extend(new_elements)
         return new_elements
 
-    async def _fetch_next_page(self) -> list[ResourceType]:
+    async def _fetch_next_page(self, limit: int | None = None) -> list[ResourceType]:
         assert self.__next_path is not None  # nosec B101
         response_payload = await self.__client.request(
             "GET",
             self.__next_path,
             parent=self.__parent,
             paginate_list=True,
+            limit=limit,
             **self.__next_params,
         )
         self.__next_path = None
@@ -89,11 +90,7 @@ class PaginatedList(Generic[ResourceType]):
                 **params,
             )
             self.total = response_payload["total"]
-        while limit is None or limit > 0:
-            if not self._could_grow():
-                break
-            await self._grow()
-            if limit is not None:
-                limit -= 1
+        while self._could_grow():
+            await self._grow(limit)
         self._fetched = True
         return self
