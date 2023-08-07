@@ -168,7 +168,7 @@ class Client:
             )
         try:
             response.raise_for_status()
-        except aiohttp.web.HTTPError() as exc:
+        except aiohttp.web.HTTPError as exc:
             raise DeezerHTTPError.from_http_error(exc) from exc
         json_data = await response.json()
         if not isinstance(json_data, dict):
