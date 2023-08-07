@@ -92,18 +92,11 @@ class PaginatedList(Generic[ResourceType]):
 
     async def fetch(self) -> PaginatedList:
         """Function to fetch the thing"""
-        if self.total is None:
-            params = self.__base_params.copy()
-            params["limit"] = 1
-            response_payload = await self.__client.request(
-                "GET",
-                self.__base_path,
-                parent=self.__parent,
-                paginate_list=True,
-                **params,
-            )
-            self.total = response_payload["total"]
-        while self._could_grow():
+        try:
+            limit = int(self.__base_params["limit"])
+        except KeyError:
+            limit = 500
+        while self._could_grow() and len(self.__elements) < limit:
             await self._grow()
         self._fetched = True
         return self
