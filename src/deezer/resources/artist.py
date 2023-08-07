@@ -40,7 +40,7 @@ class Artist(Resource):
         :returns: a :class:`PaginatedList <deezer.PaginatedList>`
                   of :class:`Track <deezer.Track>` instances.
         """
-        return (await self.get_paginated_list("top", **kwargs))[:limit]
+        return await self.get_paginated_list("top", limit=limit, **kwargs)
 
     async def get_related(self, **kwargs) -> PaginatedList[Artist]:
         """

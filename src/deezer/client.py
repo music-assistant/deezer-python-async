@@ -141,7 +141,6 @@ class Client:
         parent: Resource | None = None,
         resource_type: type[Resource] | None = None,
         resource_id: int | None = None,
-        limit: int | None = None,
         paginate_list=False,
         **params,
     ):
@@ -156,8 +155,6 @@ class Client:
         :param paginate_list: Whether to wrap list into a pagination object.
         :param params: Query parameters to add to the request
         """
-        if limit:
-            params["limit"] = limit
         if self.access_token is not None:
             params["access_token"] = str(self.access_token)
         async with self.throttler:
@@ -183,11 +180,11 @@ class Client:
             paginate_list=paginate_list,
         )
 
-    async def _get_paginated_list(self, path, limit: int | None = None, **params):
+    async def _get_paginated_list(self, path, **params):
         paginated_list: PaginatedList = PaginatedList(
             client=self, base_path=path, **params
         )
-        return await paginated_list.fetch(limit)
+        return await paginated_list.fetch()
 
     async def get_album(self, album_id: int) -> Album:
         """
@@ -608,6 +605,8 @@ class Client:
         **advanced_params: str | int | None,
     ):
         optional_params = {}
+        if limit:
+            optional_params["limit"] = str(limit)
         if strict is True:
             optional_params["strict"] = "on"
         if ordering:
@@ -624,14 +623,13 @@ class Client:
         return await self._get_paginated_list(
             path=f"search/{path}" if path else "search",
             q=" ".join(query_parts),
-            limit=limit,
             **optional_params,
         )
 
     async def search(
         self,
         query: str = "",
-        limit: int | None = 5,
+        limit: int | None = None,
         strict: bool | None = None,
         ordering: str | None = None,
         artist: str | None = None,
@@ -681,7 +679,7 @@ class Client:
     async def search_albums(
         self,
         query: str = "",
-        limit: int | None = 5,
+        limit: int | None = None,
         strict: bool | None = None,
         ordering: str | None = None,
     ) -> PaginatedList[Album]:
@@ -704,7 +702,7 @@ class Client:
     async def search_artists(
         self,
         query: str = "",
-        limit: int | None = 5,
+        limit: int | None = None,
         strict: bool | None = None,
         ordering: str | None = None,
     ) -> PaginatedList[Artist]:
@@ -727,7 +725,7 @@ class Client:
     async def search_playlists(
         self,
         query: str = "",
-        limit: int | None = 5,
+        limit: int | None = None,
         strict: bool | None = None,
         ordering: str | None = None,
     ) -> PaginatedList[Playlist]:

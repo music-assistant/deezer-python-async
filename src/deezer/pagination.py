@@ -46,7 +46,7 @@ class PaginatedList(Generic[ResourceType]):
         index: int | slice,
     ) -> ResourceType | list[ResourceType]:
         return self.__elements[index]
-    
+
     def __iter__(self) -> Generator[ResourceType, None, None]:
         yield from self.__elements
 
@@ -63,19 +63,18 @@ class PaginatedList(Generic[ResourceType]):
     def _could_grow(self) -> bool:
         return self.__next_path is not None
 
-    async def _grow(self, limit: int | None = None) -> list[ResourceType]:
-        new_elements = await self._fetch_next_page(limit)
+    async def _grow(self) -> list[ResourceType]:
+        new_elements = await self._fetch_next_page()
         self.__elements.extend(new_elements)
         return new_elements
 
-    async def _fetch_next_page(self, limit: int | None = None) -> list[ResourceType]:
+    async def _fetch_next_page(self) -> list[ResourceType]:
         assert self.__next_path is not None  # nosec B101
         response_payload = await self.__client.request(
             "GET",
             self.__next_path,
             parent=self.__parent,
             paginate_list=True,
-            limit=limit,
             **self.__next_params,
         )
         self.__next_path = None
@@ -91,7 +90,7 @@ class PaginatedList(Generic[ResourceType]):
         while len(self.__elements) <= index and self._could_grow():
             await self._grow()
 
-    async def fetch(self, limit: int | None = None) -> PaginatedList:
+    async def fetch(self) -> PaginatedList:
         """Function to fetch the thing"""
         if self.total is None:
             params = self.__base_params.copy()
@@ -105,6 +104,6 @@ class PaginatedList(Generic[ResourceType]):
             )
             self.total = response_payload["total"]
         while self._could_grow():
-            await self._grow(limit)
+            await self._grow()
         self._fetched = True
         return self
