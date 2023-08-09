@@ -64,7 +64,7 @@ class User(Resource):
         :param album: an :class:`~deezer.Album` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return await self.get_paginated_list("albums", album_id=get_id(album))
+        return await self.post_relation("albums", album_id=get_id(album))
 
     async def remove_album(self, album: Album | int):
         """
@@ -91,7 +91,7 @@ class User(Resource):
         :param track: a :class:`~deezer.Track` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return await self.get_paginated_list("tracks", track_id=get_id(track))
+        return await self.post_relation("tracks", track_id=get_id(track))
 
     async def remove_track(self, track: Track | int):
         """
@@ -118,7 +118,7 @@ class User(Resource):
         :param artist: an :class:`~deezer.Artist` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return await self.get_paginated_list("artists", artist_id=get_id(artist))
+        return await self.post_relation("artists", artist_id=get_id(artist))
 
     async def remove_artist(self, artist: Artist | int):
         """
@@ -154,7 +154,7 @@ class User(Resource):
         :param user: a :class:`~deezer.User` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return await self.get_paginated_list("followings", user_id=get_id(user))
+        return await self.post_relation("followings", user_id=get_id(user))
 
     async def unfollow(self, user: User | int):
         """
@@ -181,7 +181,7 @@ class User(Resource):
         :param playlist: a :class:`~deezer.Playlist` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
-        return await self.get_paginated_list("playlists", playlist_id=get_id(playlist))
+        return await self.post_relation("playlists", playlist_id=get_id(playlist))
 
     async def remove_playlist(self, playlist: Playlist | int):
         """
@@ -199,7 +199,7 @@ class User(Resource):
         :param title: the title of the playlist
         :returns: the ID of the playlist that was created
         """
-        result = await self.get_paginated_list("playlists", title=title)
+        result = await self.post_relation("playlists", title=title)
         # Note: the REST API call returns a dict with just the "id" key in it,
         # so we return that instead of the full Playlist object
         return result.id
