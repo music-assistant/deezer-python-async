@@ -33,6 +33,13 @@ class PaginatedList(Generic[ResourceType]):
         self._fetched = False
         self.total = False
 
+    def __repr__(self) -> str:
+        repr_size = 5
+        data: list[ResourceType | str] = list(self[: repr_size + 1])
+        if len(data) > repr_size:
+            data[-1] = "..."
+        return f"<{self.__class__.__name__} {data!r}>"
+
     @overload
     def __getitem__(self, index: int) -> ResourceType:
         ...
@@ -92,10 +99,10 @@ class PaginatedList(Generic[ResourceType]):
 
     async def fetch(self) -> PaginatedList:
         """Function to fetch the thing"""
-        try:
+        if hasattr(self.__base_params, "limit"):
             limit = int(self.__base_params["limit"])
-        except KeyError:
-            limit = 500
+        else:
+            limit = 99999
         while self._could_grow() and len(self.__elements) < limit:
             await self._grow()
         self._fetched = True
