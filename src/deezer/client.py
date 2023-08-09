@@ -410,7 +410,7 @@ class Client:
         :returns: a :class:`PaginatedList <deezer.PaginatedList>`
                   of :class:`Track <deezer.Track>` instances
         """
-        return PaginatedList(client=self, base_path="user/me/flow", **kwargs)
+        return await self._get_paginated_list("user/me/flow", **kwargs)
 
     async def get_user_albums(self, user_id: int | None = None) -> PaginatedList[Album]:
         """
