@@ -67,8 +67,9 @@ exclude_commit_patterns = [
 keep_trailing_newline = true
 
 [tool.pytest.ini_options]
-addopts = "-v -Wdefault --cov=deezer"
+addopts = "-v -W default --cov=deezer"
 pythonpath = ["src"]
+asyncio_mode="auto"
 
 [tool.coverage.run]
 branch = true
