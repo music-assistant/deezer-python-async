@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from deezer import Album, Artist, PaginatedList
+from deezer import Album, PaginatedList
 
 pytestmark = pytest.mark.vcr
 
@@ -11,13 +11,8 @@ class TestPaginatedList:
     """Tests for the PaginatedList class."""
 
     @pytest.fixture()
-    def daft_punk_albums(self, client):
-        parent = Artist(client, {"id": 27, "type": "artist"})
-        return PaginatedList(
-            client=client,
-            parent=parent,
-            base_path="artist/27/albums",
-        )
+    async def daft_punk_albums(self, client):
+        return await (await client.get_artist(27)).get_albums()
 
     def test_repr_many_results(self, daft_punk_albums):
         assert repr(daft_punk_albums) == (
@@ -31,14 +26,16 @@ class TestPaginatedList:
             "]>"
         )
 
-    def test_repr_little_results(self, client):
-        results = client.search_artists("rouquine")
+    async def test_repr_little_results(self, client):
+        results = await client.search_artists("rouquine")
         assert repr(results) == (
             "<PaginatedList [<Artist: Rouquine>, <Artist: Rouquined>]>"
         )
 
-    def test_repr_empty(self, client):
-        results = client.search_artists("something very complicated without results")
+    async def test_repr_empty(self, client):
+        results = await client.search_artists(
+            "something very complicated without results"
+        )
         assert repr(results) == "<PaginatedList []>"
 
     def test_total(self, daft_punk_albums):
@@ -108,7 +105,7 @@ class TestPaginatedList:
             "Da Funk",
         ]
 
-    def test_slicing_with_step(self, daft_punk_albums):
+    async def test_slicing_with_step(self, daft_punk_albums):
         albums = daft_punk_albums[2:10:2]
         assert [a.title for a in albums] == [
             "TRON: Legacy Reconfigured",
