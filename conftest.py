@@ -6,6 +6,8 @@ import deezer
 env = Env()
 env.read_env()
 
+pytest_plugins = ("pytest_asyncio",)
+
 
 @pytest.fixture()
 def client():
