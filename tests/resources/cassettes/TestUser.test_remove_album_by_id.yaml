@@ -2,19 +2,13 @@ interactions:
   - request:
       body: null
       headers:
-        Accept:
-          - "*/*"
         Accept-Encoding:
           - identity
-        Connection:
-          - keep-alive
-        User-Agent:
-          - python-requests/2.30.0
       method: GET
       uri: https://api.deezer.com/user/359622?access_token=dummy
     response:
       body:
-        string: '{"id":359622,"name":"Bruno Alla","lastname":"Alla","firstname":"Bruno","email":"alla.brunoo@gmail.com","status":0,"birthday":"0000-00-00","inscription_date":"2007-08-26","gender":"","link":"https:\/\/www.deezer.com\/profile\/359622","picture":"https:\/\/api.deezer.com\/user\/359622\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/1000x1000-000000-80-0-0.jpg","country":"GB","lang":"fr","is_kid":false,"explicit_content_level":"explicit_display","explicit_content_levels_available":["explicit_display","explicit_no_recommendation","explicit_hide"],"tracklist":"https:\/\/api.deezer.com\/user\/359622\/flow","type":"user"}'
+        string: '{"id":359622,"name":"Bruno Alla","link":"https:\/\/www.deezer.com\/profile\/359622","picture":"https:\/\/api.deezer.com\/user\/359622\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/1000x1000-000000-80-0-0.jpg","country":"GB","tracklist":"https:\/\/api.deezer.com\/user\/359622\/flow","type":"user"}'
       headers:
         Access-Control-Allow-Credentials:
           - "true"
@@ -31,7 +25,7 @@ interactions:
         Connection:
           - keep-alive
         Content-Length:
-          - "1056"
+          - "734"
         Content-Type:
           - application/json; charset=utf-8
         Expires:
@@ -47,7 +41,7 @@ interactions:
         X-Content-Type-Options:
           - nosniff
         X-Host:
-          - blm-web-151
+          - blm-web-183
         x-org:
           - FR
       status:
@@ -56,25 +50,19 @@ interactions:
   - request:
       body: null
       headers:
-        Accept:
-          - "*/*"
         Accept-Encoding:
           - identity
-        Connection:
-          - keep-alive
-        Content-Length:
-          - "0"
         Cookie:
-          - _abck=7DC80543637A90CB72107727883B2A40~-1~YAAQDUMVAkvo6AGIAQAAdWpoBwliPakoAaJNsK5JlYoSaAePYoeHTyyRZ4e0aUCQbazIjqDO+nMQLQQUwqhRaS7OYvQlVkXn7Hg1pRa6/ca2J4B1ZOHNzR6Nkg1HJ9TmzeDf8CCbpxrZEqe4Ne9TiZvrPVQTo8Vp+x52xf/SrryQtuth0c+7uC0UjCN+YHWN69wth50npSx7Asfu1wvxUpFY7A4Zih0DA70+13krkpiVNXQipzA5ZgqQ9CG5E1hdSpi5ER1gseQTnBXn6IT81nzaButPGYrKXLLNrCXmpJERYYmVfazED409oGsO+iCMGt7npQL2HCeg0n8dMUBpE+vDx3YxnTD1l9L8RdTWIrI7Oi3Ma6uSG8w=~-1~-1~-1;
-            bm_sz=37C030C54ABC4B3779E14187F0B6C778~YAAQDUMVAkzo6AGIAQAAdWpoBxOfszkqy6ApObVD42vG9uZpYgE1JLznMkcVm4BOXJwGuuyf1ciT2JT0FpQbfJM1H2tufLI7eNCArE70TMLBHeQNnzaMoI9Zi6lTSIT3B8rpHjpEjl+BNuTSsBmDV1JNyLIsqd334zc2T8aVvNfyPxUkpSuEG5bcbOiE2sDxUneIdJyymW/bt9mVaBeuAqbT4lKSBLGRhITLJ6kAatGvBhVTyb/ex19CUgiCzQWpUnJggnikrFktA7L0HKninUIGiXUBb+27A7Jr2hzX43RNDgg=~4604481~3424580;
-            dzr_uniq_id=dzr_uniq_id_fr48b44d4d4a0b37607609174a8ca6344da7e4c8
-        User-Agent:
-          - python-requests/2.30.0
+          - _abck=A1B70E0D24D11B76A605626F1E0DEA0F~-1~YAAQn60TAvlfvMCJAQAAXWtH8AqDPEPKbGoW/hb9vahCazg0YlYvo08Jl/fh5e5g0iq7On2IKHsvg+41Ru0fik7mlii8+oLk1r/M1rwNPcL7+y9azA5DRdxC8eq2gkH+5ahEor6QVai50CVEDT+mJg7DEMBLHSgwuNrk4doLVghxIj7UNAs3BNxPjk038hI40U3muXFp+BUwIrDBYGROOeAeqSXuUkK4Q/HWEL5L5gMmBwdqsrYV+v+lcpoxtruZp2H6kvnkgpx4Ioocna8I7YmXnrLr5OI687lB4VQhCFZBwod79WelfLpXNQ620dHdmjuZExmTJJmEfi7i0IcQuwx0vkcphVkgwQXLT+wpxDjBAPyi+0L+ED4=~-1~-1~-1;
+            bm_sz=D976E042721EF7AA5E3B38D20C0F745F~YAAQn60TAvpfvMCJAQAAXWtH8BQi9fwjCFzvm7808qxJ1GW3oarCaV54n9Rm9G5O0sN26aAOxlj0CRby/2QJwxyWXy6NOfhHK6+t3hRc69HhY8AUE8+z/fiFv8XjVRkaz0M36X650/ZFPlefrX6t4hstvH1hZOAO/srYY27phA0uzQE+eTGAiyRCXFp2tEWbuNbBX/j/lbaoCdrp+O9scrEPsaabXKLjSNdaKppxNdCCDW8DUskORBC0G7Ck+u9OgOvo8TEO4hqoFU6sJsdcg0QzLFsVyJUIkRAW3Qw9odt3RUc=~3753522~3552054;
+            dzr_uniq_id=dzr_uniq_id_fr6a8bbac233afe90772b2609f6eaa61bd14cb42
       method: DELETE
       uri: https://api.deezer.com/user/359622/albums?access_token=dummy&album_id=302127
     response:
       body:
-        string: "true"
+        string:
+          '{"error":{"type":"OAuthException","message":"An active access token
+          must be used to query information about the current user","code":200}}'
       headers:
         Access-Control-Allow-Credentials:
           - "true"
@@ -91,7 +79,7 @@ interactions:
         Connection:
           - keep-alive
         Content-Length:
-          - "4"
+          - "138"
         Content-Type:
           - application/json; charset=utf-8
         Expires:
@@ -102,10 +90,12 @@ interactions:
           - Apache
         Strict-Transport-Security:
           - max-age=31536000; includeSubDomains
+        Vary:
+          - Accept-Encoding
         X-Content-Type-Options:
           - nosniff
         X-Host:
-          - blm-web-75
+          - blm-web-98
         x-org:
           - FR
       status:

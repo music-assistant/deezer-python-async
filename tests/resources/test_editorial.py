@@ -39,5 +39,5 @@ class TestEditorial:
         assert isinstance(albums, deezer.PaginatedList)
         album = albums[0]
         assert isinstance(album, deezer.Album)
-        assert repr(album) == "<Album: Girls>"
-        assert len(albums) == 199
+        assert repr(album) == "<Album: adore u>"
+        assert len(albums) == 28

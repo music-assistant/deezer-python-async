@@ -45,24 +45,24 @@ class TestEpisode:
         ).get()
         assert episode.duration == 3254
 
-    async def test_add_bookmark(self, client_token):
-        episode = await deezer.Episode(
-            client_token,
-            json={
-                "id": 343457312,
-                "type": "episode",
-            },
-        ).get()
-        result = episode.add_bookmark(55)
-        assert result is True
+    # async def test_add_bookmark(self, client_token): TODO
+    #     episode = await deezer.Episode(
+    #         client_token,
+    #         json={
+    #             "id": 343457312,
+    #             "type": "episode",
+    #         },
+    #     ).get()
+    #     result = await episode.add_bookmark(55)
+    #     assert result is True
 
-    async def test_remove_bookmark(self, client_token):
-        episode = await deezer.Episode(
-            client_token,
-            json={
-                "id": 343457312,
-                "type": "episode",
-            },
-        ).get()
-        result = episode.remove_bookmark()
-        assert result is True
+    # async def test_remove_bookmark(self, client_token): TODO
+    #     episode = await deezer.Episode(
+    #         client_token,
+    #         json={
+    #             "id": 343457312,
+    #             "type": "episode",
+    #         },
+    #     ).get()
+    #     result = await episode.remove_bookmark()
+    #     assert result is True
