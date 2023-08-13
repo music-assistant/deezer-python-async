@@ -39,11 +39,11 @@ class Resource:
         id_ = getattr(self, "id", None)
         return f"<{self.__class__.__name__}: {name or title or id_}>"
 
-    async def as_dict(self) -> dict[str, Any]:
+    def as_dict(self) -> dict[str, Any]:
         """Convert resource to dictionary."""
         result = {}
         for key in self._fields:
-            value = await getattr(self, key)
+            value = getattr(self, key)
             if isinstance(value, list):
                 value = [i.as_dict() if isinstance(i, Resource) else i for i in value]
             elif isinstance(value, Resource):
