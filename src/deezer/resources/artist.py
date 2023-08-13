@@ -33,7 +33,7 @@ class Artist(Resource):
     radio: bool
     tracklist: str
 
-    async def get_top(self, limit: int = 25, **kwargs) -> PaginatedList[Track]:
+    async def get_top(self, limit: int | None = None, **kwargs) -> PaginatedList[Track]:
         """
         Get the top tracks of an artist.
 
