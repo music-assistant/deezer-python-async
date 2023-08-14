@@ -25,13 +25,16 @@ class TestArtist:
         assert repr(album) == "<Album: Homework (25th Anniversary Edition)>"
         assert len(albums) == 36
 
-    # async def test_get_top(self, daft_punk):
-    #     tracks = await daft_punk.get_top()
-    #     assert isinstance(tracks, deezer.PaginatedList)
-    #     track = tracks[0]
-    #     assert isinstance(track, deezer.Track)
-    #     assert repr(track) == "<Track: Instant Crush>"
-    #     assert len(tracks) == 100 TODO
+    async def test_get_top(self, daft_punk):
+        tracks = await daft_punk.get_top()
+        assert isinstance(tracks, deezer.PaginatedList)
+        track = tracks[0]
+        assert isinstance(track, deezer.Track)
+        assert (
+            repr(track)
+            == "<Track: Get Lucky (Radio Edit - feat. Pharrell Williams and Nile Rodgers)>"
+        )
+        assert len(tracks) == 100
 
     async def test_get_radio(self, daft_punk):
         tracks = await daft_punk.get_radio()
