@@ -8,13 +8,13 @@ pytestmark = pytest.mark.vcr
 
 
 class TestTrack:
-    def test_track_attributes(self, client):
+    async def test_track_attributes(self, client):
         """
         Test track resource
         """
-        track = client.get_track(3135556)
-        artist = track.get_artist()
-        album = track.get_album()
+        track = await client.get_track(3135556)
+        artist = await track.get_artist()
+        album = await track.get_album()
         assert hasattr(track, "title")
         assert isinstance(track, deezer.Track)
         assert isinstance(artist, deezer.Artist)
@@ -23,8 +23,8 @@ class TestTrack:
         assert repr(artist) == "<Artist: Daft Punk>"
         assert repr(album) == "<Album: Discovery>"
 
-    def test_contributors(self, client):
-        track = client.get_track(1425844092)
+    async def test_contributors(self, client):
+        track = await client.get_track(1425844092)
         contributors = track.contributors
         assert isinstance(contributors, list)
         assert len(contributors) == 2

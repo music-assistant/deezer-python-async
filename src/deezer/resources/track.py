@@ -51,18 +51,18 @@ class Track(Resource):
     def _parse_contributors(self, raw_value):
         return [Artist(client=self.client, json=val) for val in raw_value]
 
-    def get_artist(self) -> Artist:
+    async def get_artist(self) -> Artist:
         """
         Get the artist of the Track.
 
         :returns: the :class:`Artist <deezer.Artist>` of the Album
         """
-        return self.client.get_artist(self.artist.id)
+        return await self.client.get_artist(self.artist.id)
 
-    def get_album(self) -> Album:
+    async def get_album(self) -> Album:
         """
         Get the album of the Track.
 
         :returns: the :class:`Album <deezer.Album>` instance
         """
-        return self.client.get_album(self.album.id)
+        return await self.client.get_album(self.album.id)

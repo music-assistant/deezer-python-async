@@ -2,14 +2,54 @@ interactions:
 - request:
     body: null
     headers:
-      Accept:
-      - '*/*'
       Accept-Encoding:
       - identity
+    method: GET
+    uri: https://api.deezer.com/artist/27
+  response:
+    body:
+      string: '{"id":27,"name":"Daft Punk","link":"https:\/\/www.deezer.com\/artist\/27","share":"https:\/\/www.deezer.com\/artist\/27?utm_source=deezer&utm_content=artist-27&utm_term=0_1691608931&utm_medium=web","picture":"https:\/\/api.deezer.com\/artist\/27\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/1000x1000-000000-80-0-0.jpg","nb_album":36,"nb_fan":4473256,"radio":true,"tracklist":"https:\/\/api.deezer.com\/artist\/27\/top?limit=50","type":"artist"}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-Requested-With, Content-Type, Authorization, Origin, Accept, Accept-Encoding
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, DELETE, PUT
+      Access-Control-Expose-Headers:
+      - Location
+      Access-Control-Max-Age:
+      - '86400'
       Connection:
       - keep-alive
-      User-Agent:
-      - python-requests/2.26.0
+      Content-Length:
+      - '891'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Host:
+      - blm-web-188
+      x-org:
+      - FR
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - identity
+      Cookie:
+      - _abck=3062F0A63BBE44F2E6D4864DF7B7DBA1~-1~YAAQn60TAiH6U7+JAQAAENu/2wrbk35h04EB2+1DDmLCxYa2MbPNtQRb4bdpUmg7Ywfoh2GgF01axF7i5Z/2pmAV6bY5GK/Dohrszq7eTbPe4v3LszkwL8hC0SW8EASQd+9eCiqG/wvzpV5lKfwfUqOiYnR1WioYEJngpdTV6eZjBIzOnabSG2d25LW/2umlFST1zoMwch1aCvlsrGuvpyXra96MJlRfoFBcEH1254Y6DdPjz9l6fuTcQo4h4sZyf0Nq+HJGTnQ2WzE6J6vRKIRBhoEo1Hcsmb5yUy/OTeiSluUiUvdWT9D9MdPtiE0ci2QSOOd8TKmmG5M18Q/5lgSbS88wQKtQvbd5WstfNq9lUqixJWrkvZ8=~-1~-1~-1;
+        bm_sz=81723D268132C0F0CACFE08D0ECF2A26~YAAQn60TAiL6U7+JAQAAENu/2xTL6fFBMgpP8yLOTktpRcTawlO3zk3S6sQYVBN7Efgt5gH8diQftxUfwWTX4YKIUk9jHoePi1YMgAFDIgFAUOI0NyHYFLOj6cgKkaMKxd1L+Zw+mRxZO3EAB+B4mkqpTL6swSi6twpqZvl7dmIJbqhBD8bKSwX+3qNoXYpQaQYsTiNTN8+Rfr2Zyk6NIXsLK78fvsNZ0V/v1NbQr/kQ3qmOozarjOxJRjZaQq7AB7UkfatDQVfHTb1NQUhA0tN12h/k4pUHxOipfh6XyPtIalw=~3622199~4404803;
+        dzr_uniq_id=dzr_uniq_id_fr94beedb2c4ec6afb8d96bbaaf686274066d1a3
     method: GET
     uri: https://api.deezer.com/artist/27/albums
   response:
@@ -53,6 +93,8 @@ interactions:
       - application/json; charset=utf-8
       Server:
       - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
       Transfer-Encoding:
       - chunked
       Vary:
@@ -60,7 +102,61 @@ interactions:
       X-Content-Type-Options:
       - nosniff
       X-Host:
-      - blm-web-108
+      - blm-web-124
+      x-org:
+      - FR
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept-Encoding:
+      - identity
+      Cookie:
+      - _abck=3062F0A63BBE44F2E6D4864DF7B7DBA1~-1~YAAQn60TAiH6U7+JAQAAENu/2wrbk35h04EB2+1DDmLCxYa2MbPNtQRb4bdpUmg7Ywfoh2GgF01axF7i5Z/2pmAV6bY5GK/Dohrszq7eTbPe4v3LszkwL8hC0SW8EASQd+9eCiqG/wvzpV5lKfwfUqOiYnR1WioYEJngpdTV6eZjBIzOnabSG2d25LW/2umlFST1zoMwch1aCvlsrGuvpyXra96MJlRfoFBcEH1254Y6DdPjz9l6fuTcQo4h4sZyf0Nq+HJGTnQ2WzE6J6vRKIRBhoEo1Hcsmb5yUy/OTeiSluUiUvdWT9D9MdPtiE0ci2QSOOd8TKmmG5M18Q/5lgSbS88wQKtQvbd5WstfNq9lUqixJWrkvZ8=~-1~-1~-1;
+        bm_sz=81723D268132C0F0CACFE08D0ECF2A26~YAAQn60TAiL6U7+JAQAAENu/2xTL6fFBMgpP8yLOTktpRcTawlO3zk3S6sQYVBN7Efgt5gH8diQftxUfwWTX4YKIUk9jHoePi1YMgAFDIgFAUOI0NyHYFLOj6cgKkaMKxd1L+Zw+mRxZO3EAB+B4mkqpTL6swSi6twpqZvl7dmIJbqhBD8bKSwX+3qNoXYpQaQYsTiNTN8+Rfr2Zyk6NIXsLK78fvsNZ0V/v1NbQr/kQ3qmOozarjOxJRjZaQq7AB7UkfatDQVfHTb1NQUhA0tN12h/k4pUHxOipfh6XyPtIalw=~3622199~4404803;
+        dzr_uniq_id=dzr_uniq_id_fr94beedb2c4ec6afb8d96bbaaf686274066d1a3
+    method: GET
+    uri: https://api.deezer.com/artist/27/albums?index=25
+  response:
+    body:
+      string: '{"data":[{"id":7294838,"title":"Harder, Better, Faster, Stronger (Live)","link":"https:\/\/www.deezer.com\/album\/7294838","cover":"https:\/\/api.deezer.com\/album\/7294838\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/43a0af617608677263fba3fb4709b706\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/43a0af617608677263fba3fb4709b706\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/43a0af617608677263fba3fb4709b706\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/43a0af617608677263fba3fb4709b706\/1000x1000-000000-80-0-0.jpg","md5_image":"43a0af617608677263fba3fb4709b706","genre_id":113,"fans":3591,"release_date":"2010-03-15","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/7294838\/tracks","explicit_lyrics":false,"type":"album"},{"id":325490,"title":"Harder,
+        Better, Faster, Stronger (Alive Radio Edit 2007)","link":"https:\/\/www.deezer.com\/album\/325490","cover":"https:\/\/api.deezer.com\/album\/325490\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/43a0af617608677263fba3fb4709b706\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/43a0af617608677263fba3fb4709b706\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/43a0af617608677263fba3fb4709b706\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/43a0af617608677263fba3fb4709b706\/1000x1000-000000-80-0-0.jpg","md5_image":"43a0af617608677263fba3fb4709b706","genre_id":113,"fans":5392,"release_date":"2007-10-09","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/325490\/tracks","explicit_lyrics":false,"type":"album"},{"id":325424,"title":"Human
+        After All","link":"https:\/\/www.deezer.com\/album\/325424","cover":"https:\/\/api.deezer.com\/album\/325424\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/eedf82df23d351df0bbba0d3d27ce48e\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/eedf82df23d351df0bbba0d3d27ce48e\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/eedf82df23d351df0bbba0d3d27ce48e\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/eedf82df23d351df0bbba0d3d27ce48e\/1000x1000-000000-80-0-0.jpg","md5_image":"eedf82df23d351df0bbba0d3d27ce48e","genre_id":113,"fans":1110,"release_date":"2005-10-28","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/325424\/tracks","explicit_lyrics":false,"type":"album"},{"id":303165,"title":"Technologic","link":"https:\/\/www.deezer.com\/album\/303165","cover":"https:\/\/api.deezer.com\/album\/303165\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/c139f190f4d55df305e96add35075710\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/c139f190f4d55df305e96add35075710\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/c139f190f4d55df305e96add35075710\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/c139f190f4d55df305e96add35075710\/1000x1000-000000-80-0-0.jpg","md5_image":"c139f190f4d55df305e96add35075710","genre_id":113,"fans":1774,"release_date":"2005-06-10","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/303165\/tracks","explicit_lyrics":false,"type":"album"},{"id":303567,"title":"Technologic
+        (Radio Edit)","link":"https:\/\/www.deezer.com\/album\/303567","cover":"https:\/\/api.deezer.com\/album\/303567\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/fd3b10e76c3ddea1b1db8d85fa09b9ba\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/fd3b10e76c3ddea1b1db8d85fa09b9ba\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/fd3b10e76c3ddea1b1db8d85fa09b9ba\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/fd3b10e76c3ddea1b1db8d85fa09b9ba\/1000x1000-000000-80-0-0.jpg","md5_image":"fd3b10e76c3ddea1b1db8d85fa09b9ba","genre_id":113,"fans":3029,"release_date":"2005-04-22","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/303567\/tracks","explicit_lyrics":false,"type":"album"},{"id":325470,"title":"Robot
+        Rock (Edit)","link":"https:\/\/www.deezer.com\/album\/325470","cover":"https:\/\/api.deezer.com\/album\/325470\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/611182646e04c0a5966e2bf07963e95c\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/611182646e04c0a5966e2bf07963e95c\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/611182646e04c0a5966e2bf07963e95c\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/611182646e04c0a5966e2bf07963e95c\/1000x1000-000000-80-0-0.jpg","md5_image":"611182646e04c0a5966e2bf07963e95c","genre_id":113,"fans":4067,"release_date":"2005-01-25","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/325470\/tracks","explicit_lyrics":false,"type":"album"},{"id":299734,"title":"Something
+        About Us (Love Theme from Interstella)","link":"https:\/\/www.deezer.com\/album\/299734","cover":"https:\/\/api.deezer.com\/album\/299734\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/4c702932846a83dae320dbc3b4c2e57d\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/4c702932846a83dae320dbc3b4c2e57d\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/4c702932846a83dae320dbc3b4c2e57d\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/4c702932846a83dae320dbc3b4c2e57d\/1000x1000-000000-80-0-0.jpg","md5_image":"4c702932846a83dae320dbc3b4c2e57d","genre_id":113,"fans":14913,"release_date":"2003-11-14","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/299734\/tracks","explicit_lyrics":false,"type":"album"},{"id":325478,"title":"Digital
+        Love","link":"https:\/\/www.deezer.com\/album\/325478","cover":"https:\/\/api.deezer.com\/album\/325478\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/22f467661d1f90e43f8d6c4ee5b5cf76\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/22f467661d1f90e43f8d6c4ee5b5cf76\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/22f467661d1f90e43f8d6c4ee5b5cf76\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/22f467661d1f90e43f8d6c4ee5b5cf76\/1000x1000-000000-80-0-0.jpg","md5_image":"22f467661d1f90e43f8d6c4ee5b5cf76","genre_id":113,"fans":4845,"release_date":"2001-06-08","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/325478\/tracks","explicit_lyrics":false,"type":"album"},{"id":303599,"title":"Aerodynamic","link":"https:\/\/www.deezer.com\/album\/303599","cover":"https:\/\/api.deezer.com\/album\/303599\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/a942ef5f104ab24711367dc88ed8ca94\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/a942ef5f104ab24711367dc88ed8ca94\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/a942ef5f104ab24711367dc88ed8ca94\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/a942ef5f104ab24711367dc88ed8ca94\/1000x1000-000000-80-0-0.jpg","md5_image":"a942ef5f104ab24711367dc88ed8ca94","genre_id":113,"fans":5531,"release_date":"2001-03-23","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/303599\/tracks","explicit_lyrics":false,"type":"album"},{"id":303598,"title":"One
+        More Time","link":"https:\/\/www.deezer.com\/album\/303598","cover":"https:\/\/api.deezer.com\/album\/303598\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/07d17f7608a4cbcb60d701faa3c257c8\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/07d17f7608a4cbcb60d701faa3c257c8\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/07d17f7608a4cbcb60d701faa3c257c8\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/07d17f7608a4cbcb60d701faa3c257c8\/1000x1000-000000-80-0-0.jpg","md5_image":"07d17f7608a4cbcb60d701faa3c257c8","genre_id":113,"fans":12099,"release_date":"2000-12-08","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/303598\/tracks","explicit_lyrics":false,"type":"album"},{"id":325475,"title":"Da
+        Funk","link":"https:\/\/www.deezer.com\/album\/325475","cover":"https:\/\/api.deezer.com\/album\/325475\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/a1056aeed9c91e28359836c6eb89793c\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/a1056aeed9c91e28359836c6eb89793c\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/a1056aeed9c91e28359836c6eb89793c\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/a1056aeed9c91e28359836c6eb89793c\/1000x1000-000000-80-0-0.jpg","md5_image":"a1056aeed9c91e28359836c6eb89793c","genre_id":113,"fans":6228,"release_date":"1997-02-28","record_type":"single","tracklist":"https:\/\/api.deezer.com\/album\/325475\/tracks","explicit_lyrics":false,"type":"album"}],"total":36,"prev":"https:\/\/api.deezer.com\/artist\/27\/albums?index=0"}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Headers:
+      - X-Requested-With, Content-Type, Authorization, Origin, Accept, Accept-Encoding
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS, DELETE, PUT
+      Access-Control-Expose-Headers:
+      - Location
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '9769'
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      Vary:
+      - Accept-Encoding
+      X-Content-Type-Options:
+      - nosniff
+      X-Host:
+      - blm-web-174
       x-org:
       - FR
     status:

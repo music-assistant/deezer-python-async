@@ -28,7 +28,7 @@ class Radio(Resource):
     tracklist: str
     md5_image: str
 
-    def get_tracks(self) -> list[Track]:
+    async def get_tracks(self) -> list[Track]:
         """
         Get first 40 tracks in the radio.
 
@@ -36,4 +36,4 @@ class Radio(Resource):
 
         :returns: a list of :class:`Track <deezer.Track>` instances.
         """
-        return self.get_relation("tracks")
+        return await self.get_relation("tracks")

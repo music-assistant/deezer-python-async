@@ -8,31 +8,31 @@ pytestmark = pytest.mark.vcr
 
 
 class TestResource:
-    def test_resource_relation(self, client):
+    async def test_resource_relation(self, client):
         """Test passing parent object when using get_relation."""
-        album = client.get_album(302127)
-        tracks = album.get_tracks()
+        album = await client.get_album(302127)
+        tracks = await album.get_tracks()
         assert tracks[0].album is album
 
-    def test_access_non_inferable_field_simplified_objet(self, client):
+    async def test_access_non_inferable_field_simplified_objet(self, client):
         """Fetch the full object when the missing field is not inferable."""
-        track = deezer.Track(
+        track = await deezer.Track(
             client,
             json={
                 "id": 3135556,
                 "type": "track",
             },
-        )
+        ).get()
         assert track.bpm == 123.4
 
-    def test_access_no_infinite_fetch(self, client):
-        track = deezer.Track(
+    async def test_access_no_infinite_fetch(self, client):
+        track = await deezer.Track(
             client,
             json={
                 "id": 3135556,
                 "type": "track",
             },
-        )
+        ).get()
         # Does and API call
         assert track.title == "Harder, Better, Faster, Stronger"
 
@@ -41,15 +41,15 @@ class TestResource:
             track.bpm
         assert str(exc_info.value) == "'Track' object has no attribute 'bpm'"
 
-    def test_field_not_found(self, client):
+    async def test_field_not_found(self, client):
         """When field is missing an attribute error is raised without API calls."""
-        episode = deezer.Episode(
+        track = await deezer.Track(
             client,
             json={
-                "id": 343457312,
-                "type": "episode",
+                "id": 3135556,
+                "type": "track",
             },
-        )
+        ).get()
         with pytest.raises(AttributeError) as exc_info:
-            episode.something
-        assert str(exc_info.value) == "'Episode' object has no attribute 'something'"
+            track.something
+        assert str(exc_info.value) == "'Track' object has no attribute 'something'"

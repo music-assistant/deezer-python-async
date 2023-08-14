@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "deezer-python"
-version = "6.1.0"
+version = "6.1.0a"
 description = "A friendly wrapper library for the Deezer API"
 authors = ["Bruno Alla <alla.brunoo@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-keywords = ["deezer", "sdk", "client", "requests"]
+keywords = ["deezer", "sdk", "client", "aiohttp"]
 repository = "https://github.com/browniebroke/deezer-python"
 documentation = "https://deezer-python.readthedocs.io"
 classifiers = [
@@ -28,7 +28,8 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.8"
-requests = ">=2.18"
+aiohttp = ">=3.8.5"
+asyncio-throttle = "^1.0.2"
 
 [tool.poetry.group.docs]
 optional = true
@@ -46,6 +47,7 @@ pytest = "^7.0"
 pytest-cov = "^4.0"
 pytest-mock = "^3.6"
 pytest-vcr = "^1.0"
+pytest-asyncio = "^0.21.1"
 vcrpy = "^5.0.0"
 deezer-oauth-cli = "^1.0.0"
 
@@ -65,8 +67,9 @@ exclude_commit_patterns = [
 keep_trailing_newline = true
 
 [tool.pytest.ini_options]
-addopts = "-v -Wdefault --cov=deezer"
+addopts = "-v -W default --cov=deezer"
 pythonpath = ["src"]
+asyncio_mode="auto"
 
 [tool.coverage.run]
 branch = true

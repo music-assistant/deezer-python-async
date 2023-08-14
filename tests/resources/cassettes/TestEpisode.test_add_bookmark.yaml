@@ -2,21 +2,13 @@ interactions:
   - request:
       body: null
       headers:
-        Accept:
-          - "*/*"
         Accept-Encoding:
           - identity
-        Connection:
-          - keep-alive
-        Content-Length:
-          - "0"
-        User-Agent:
-          - python-requests/2.30.0
-      method: POST
-      uri: https://api.deezer.com/episode/343457312/bookmark?access_token=dummy&offset=55
+      method: GET
+      uri: https://api.deezer.com/episode/343457312?access_token=dummy
     response:
       body:
-        string: '{"error":[],"results":true}'
+        string: '{"error":{"type":"InvalidQueryException","message":"Invalid query","code":600}}'
       headers:
         Access-Control-Allow-Credentials:
           - "true"
@@ -33,7 +25,7 @@ interactions:
         Connection:
           - keep-alive
         Content-Length:
-          - "27"
+          - "79"
         Content-Type:
           - application/json; charset=utf-8
         Expires:
@@ -44,10 +36,12 @@ interactions:
           - Apache
         Strict-Transport-Security:
           - max-age=31536000; includeSubDomains
+        Vary:
+          - Accept-Encoding
         X-Content-Type-Options:
           - nosniff
         X-Host:
-          - blm-web-136
+          - blm-web-176
         x-org:
           - FR
       status:
