@@ -20,20 +20,20 @@ class TestEpisode:
         assert episode_dict["id"] == 343457312
         assert episode_dict["release_date"] == "2021-11-22 23:42:00"
 
-    # async def test_access_inferable_fields(self, client):
-    #     """Accessing a missing inferable field doesn't do any API calls."""
-    #     episode = await deezer.Episode(
-    #         client,
-    #         json={
-    #             "id": 343457312,
-    #             "type": "episode",
-    #         },
-    #     ).get()
-    #     assert episode.link == "https://www.deezer.com/episode/343457312"
-    #     assert episode.share == (
-    #         "https://www.deezer.com/episode/343457312?utm_source=deezer"
-    #         "&utm_content=episode-343457312&utm_medium=web"
-    #     ) TODO
+    async def test_access_inferable_fields(self, client):
+        """Accessing a missing inferable field doesn't do any API calls."""
+        track = await deezer.Track(
+            client,
+            json={
+                "id": 3135556,
+                "type": "track",
+            },
+        ).get()
+        assert track.link == "https://www.deezer.com/track/3135556"
+        assert track.share == (
+            "https://www.deezer.com/track/3135556?utm_source=deezer"
+            "&utm_content=track-3135556&utm_term=0_1692022470&utm_medium=web"
+        )
 
     async def test_access_non_inferable_field(self, client):
         episode = await deezer.Episode(
@@ -45,24 +45,12 @@ class TestEpisode:
         ).get()
         assert episode.duration == 3254
 
-    # async def test_add_bookmark(self, client_token): TODO
-    #     episode = await deezer.Episode(
-    #         client_token,
-    #         json={
-    #             "id": 343457312,
-    #             "type": "episode",
-    #         },
-    #     ).get()
+    # async def test_add_bookmark(self, client_token):
+    #     episode = await client_token.get_episode(343457312)
     #     result = await episode.add_bookmark(55)
     #     assert result is True
 
-    # async def test_remove_bookmark(self, client_token): TODO
-    #     episode = await deezer.Episode(
-    #         client_token,
-    #         json={
-    #             "id": 343457312,
-    #             "type": "episode",
-    #         },
-    #     ).get()
+    # async def test_remove_bookmark(self, client_token):
+    #     episode = await client_token.get_episode(343457312)
     #     result = await episode.remove_bookmark()
-    #     assert result is True
+    #     assert result is True TODO Deezer api broken...

@@ -5,10 +5,10 @@ interactions:
         Accept-Encoding:
           - identity
       method: GET
-      uri: https://api.deezer.com/user/359622?access_token=dummy
+      uri: https://api.deezer.com/user/me?access_token=dummy
     response:
       body:
-        string: '{"id":359622,"name":"Bruno Alla","link":"https:\/\/www.deezer.com\/profile\/359622","picture":"https:\/\/api.deezer.com\/user\/359622\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/1000x1000-000000-80-0-0.jpg","country":"GB","tracklist":"https:\/\/api.deezer.com\/user\/359622\/flow","type":"user"}'
+        string: '{"id":1705809182,"name":"banjon","lastname":"","firstname":"","email":"","status":2,"birthday":"0000-00-00","inscription_date":"2017-09-03","gender":"","link":"https:\/\/www.deezer.com\/profile\/1705809182","picture":"https:\/\/api.deezer.com\/user\/1705809182\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/1000x1000-000000-80-0-0.jpg","country":"DK","lang":"en","is_kid":false,"explicit_content_level":"explicit_display","explicit_content_levels_available":["explicit_display","explicit_no_recommendation","explicit_hide"],"tracklist":"https:\/\/api.deezer.com\/user\/1705809182\/flow","type":"user"}'
       headers:
         Access-Control-Allow-Credentials:
           - "true"
@@ -25,7 +25,7 @@ interactions:
         Connection:
           - keep-alive
         Content-Length:
-          - "734"
+          - "910"
         Content-Type:
           - application/json; charset=utf-8
         Expires:
@@ -41,7 +41,7 @@ interactions:
         X-Content-Type-Options:
           - nosniff
         X-Host:
-          - blm-web-54
+          - blm-web-163
         x-org:
           - FR
       status:
@@ -53,17 +53,17 @@ interactions:
         Accept-Encoding:
           - identity
         Cookie:
-          - _abck=485D9C7A6481E77B51028F4D789863F6~-1~YAAQpa0TAuylxc+JAQAA6WtH8ApBnoc+zjwg8aI1BdYPkT0XpIcCewJif9nMPvOpBxn51q3qNI82eLOdAOIg5j8b6ubWTAKIbQL7pAOa3yp4a3ZY/UgyTj3SNQloSJGMS8WiMsFri7tbJNyOGYuBHiUPAIxF+1lFbAoyjygj2jxEH9sA1eIZU9pZudsgzb+sTVR80XFZVGAvO1FS3dxGHTgpX9FwdNNPjI7WvOlQCJeQYJ1PF+v/e6o5fYW1QTmWe8Ei5rGvAH5WtSEH79MGYm+RKkpusvahJQaAx9eGgqNvRXNOgmVL6chFHkWyNWJKTGWFnX2PJM3/O5ftCi4K5GOj178tnUFnSgVaj/fp6gSB9cJ6UXqrSsQ=~-1~-1~-1;
-            bm_sz=9D85F35A19AD997574ED66BEBDED4DBE~YAAQpa0TAu2lxc+JAQAA6WtH8BRczXuTQCN15ymPRsowUFilu3mXqDTqRjF2XrFr6KRWiAAV9XUcsvd8rZBhSIqpgxA5TU6ZM2XHdOYiqNx89yVf6IuoZ6SBFHZqCO2aJ7o4DJxF4ifEd4YhuSpvl0tod3fpKdyCE4LLql7pOO/x8m4Y67/wFp+RAzQbxuKzJPfFNyuntffW2/xNxQe+6EGDD90VXelreSJW8Jn/3n3qEiq2emPQbYrr7ZAub1D2P0Uc7//p2OJp8cw/Xfr5glYq4+lNi0UJIKrzkQemkmYrbZ8=~3753522~3552054;
-            dzr_uniq_id=dzr_uniq_id_frb77ae8614eb8bd5b8d1183a8596c08649d19cd
+          - _abck=0F03F2D4F1929C025C1A50EC0FF998D4~-1~YAAQj2jdWPXbj86JAQAAwylj9ApmVI+fpA/hS9X4aCUjR/tVtzZilv7nAourhMgyqyPbQb9DNuLGe8R5fPmbPgyQ/pfIG8Y+YATzJiRTChWB39xekJhADn4rJ3ASwjgED3YLvN2ZL4TsK2YRY2C+7/R6Rb4z1ITXcq9qoNgJY61GKqp5TgIc6Blr8AkifWji62/byVh4+InGfZzFi6VjIiIeCxMpPw3X5litOvUlOXgsQIxADYz9+0QGC+pfHSpBD4SUyzg/rcNS0yxAJgl4YO3gIFbm5Qi9ZuZcBInSF323nrACuWmSPTr3gW40MgVqoaX4GSBXIF8/r1miI6B1jutvVFIR1gVSMNLYB0mJiLXnTFh5udd0b64=~-1~-1~-1;
+            bm_sz=450C9C988F819A9F32E17687D674E260~YAAQj2jdWPbbj86JAQAAwylj9BQIwUTLltZokCR4lN7POKj1YKWefouRTRAiE6RDq22sfE6jJl0bS/NPrfehMPgpwjyAcJCzGB0zc6jOFhyw9Lq/KzA2CWHcS8HEojkq4Psxpidwe62ogHwSR0lO/b8Y/FQm8jkoduB65UXVhZWd8b6QPHgS++iBLFbiKqCWuyO6JH9VkrAI4NCYt7C9eiYJZyFBYpBBreLsVg9lFcHtjC/sXPPBdGgXvAwYMBbAhWCseASZIeepiPeoSZ4gkXuuVFgN3mDtLZLm0ZCY0HesaZg=~4469305~4601905;
+            dzr_uniq_id=dzr_uniq_id_fr5da0e977aa06fee419cc3b3255f67d4263158a
       method: GET
       uri: https://api.deezer.com/album/302127?access_token=dummy
     response:
       body:
         string:
-          '{"id":302127,"title":"Discovery","upc":"724384960650","link":"https:\/\/www.deezer.com\/album\/302127","share":"https:\/\/www.deezer.com\/album\/302127?utm_source=deezer&utm_content=album-302127&utm_term=1705809182_1691953359&utm_medium=web","cover":"https:\/\/api.deezer.com\/album\/302127\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/1000x1000-000000-80-0-0.jpg","md5_image":"2e018122cb56986277102d2041a592c8","genre_id":113,"genres":{"data":[{"id":113,"name":"Dance","picture":"https:\/\/api.deezer.com\/genre\/113\/image","type":"genre"}]},"label":"Daft
-          Life Ltd.\/ADA France","nb_tracks":14,"duration":3660,"fans":274652,"release_date":"2001-03-07","record_type":"album","available":true,"tracklist":"https:\/\/api.deezer.com\/album\/302127\/tracks","explicit_lyrics":false,"explicit_content_lyrics":7,"explicit_content_cover":0,"contributors":[{"id":27,"name":"Daft
-          Punk","link":"https:\/\/www.deezer.com\/artist\/27","share":"https:\/\/www.deezer.com\/artist\/27?utm_source=deezer&utm_content=artist-27&utm_term=1705809182_1691953359&utm_medium=web","picture":"https:\/\/api.deezer.com\/artist\/27\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/1000x1000-000000-80-0-0.jpg","radio":true,"tracklist":"https:\/\/api.deezer.com\/artist\/27\/top?limit=50","type":"artist","role":"Main"}],"artist":{"id":27,"name":"Daft
+          '{"id":302127,"title":"Discovery","upc":"724384960650","link":"https:\/\/www.deezer.com\/album\/302127","share":"https:\/\/www.deezer.com\/album\/302127?utm_source=deezer&utm_content=album-302127&utm_term=1705809182_1692022286&utm_medium=web","cover":"https:\/\/api.deezer.com\/album\/302127\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/1000x1000-000000-80-0-0.jpg","md5_image":"2e018122cb56986277102d2041a592c8","genre_id":113,"genres":{"data":[{"id":113,"name":"Dance","picture":"https:\/\/api.deezer.com\/genre\/113\/image","type":"genre"}]},"label":"Daft
+          Life Ltd.\/ADA France","nb_tracks":14,"duration":3660,"fans":274674,"release_date":"2001-03-07","record_type":"album","available":true,"tracklist":"https:\/\/api.deezer.com\/album\/302127\/tracks","explicit_lyrics":false,"explicit_content_lyrics":7,"explicit_content_cover":0,"contributors":[{"id":27,"name":"Daft
+          Punk","link":"https:\/\/www.deezer.com\/artist\/27","share":"https:\/\/www.deezer.com\/artist\/27?utm_source=deezer&utm_content=artist-27&utm_term=1705809182_1692022286&utm_medium=web","picture":"https:\/\/api.deezer.com\/artist\/27\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/1000x1000-000000-80-0-0.jpg","radio":true,"tracklist":"https:\/\/api.deezer.com\/artist\/27\/top?limit=50","type":"artist","role":"Main"}],"artist":{"id":27,"name":"Daft
           Punk","picture":"https:\/\/api.deezer.com\/artist\/27\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/artist\/f2bc007e9133c946ac3c3907ddc5d2ea\/1000x1000-000000-80-0-0.jpg","tracklist":"https:\/\/api.deezer.com\/artist\/27\/top?limit=50","type":"artist"},"type":"album","tracks":{"data":[{"id":3135553,"readable":true,"title":"One
           More Time","title_short":"One More Time","title_version":"","link":"https:\/\/www.deezer.com\/track\/3135553","duration":320,"rank":894964,"explicit_lyrics":false,"explicit_content_lyrics":0,"explicit_content_cover":0,"preview":"https:\/\/cdns-preview-e.dzcdn.net\/stream\/c-e77d23e0c8ed7567a507a6d1b6a9ca1b-11.mp3","md5_image":"2e018122cb56986277102d2041a592c8","artist":{"id":27,"name":"Daft
           Punk","tracklist":"https:\/\/api.deezer.com\/artist\/27\/top?limit=50","type":"artist"},"album":{"id":302127,"title":"Discovery","cover":"https:\/\/api.deezer.com\/album\/302127\/image","cover_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/56x56-000000-80-0-0.jpg","cover_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/250x250-000000-80-0-0.jpg","cover_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/500x500-000000-80-0-0.jpg","cover_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/cover\/2e018122cb56986277102d2041a592c8\/1000x1000-000000-80-0-0.jpg","md5_image":"2e018122cb56986277102d2041a592c8","tracklist":"https:\/\/api.deezer.com\/album\/302127\/tracks","type":"album"},"type":"track"},{"id":3135554,"readable":true,"title":"Aerodynamic","title_short":"Aerodynamic","title_version":"","link":"https:\/\/www.deezer.com\/track\/3135554","duration":212,"rank":710661,"explicit_lyrics":false,"explicit_content_lyrics":6,"explicit_content_cover":0,"preview":"https:\/\/cdns-preview-b.dzcdn.net\/stream\/c-b2e0166bba75a78251d6dca9c9c3b41a-9.mp3","md5_image":"2e018122cb56986277102d2041a592c8","artist":{"id":27,"name":"Daft
@@ -121,7 +121,7 @@ interactions:
         X-Content-Type-Options:
           - nosniff
         X-Host:
-          - blm-web-05
+          - blm-web-63
         x-org:
           - FR
       status:
@@ -133,16 +133,14 @@ interactions:
         Accept-Encoding:
           - identity
         Cookie:
-          - _abck=485D9C7A6481E77B51028F4D789863F6~-1~YAAQpa0TAuylxc+JAQAA6WtH8ApBnoc+zjwg8aI1BdYPkT0XpIcCewJif9nMPvOpBxn51q3qNI82eLOdAOIg5j8b6ubWTAKIbQL7pAOa3yp4a3ZY/UgyTj3SNQloSJGMS8WiMsFri7tbJNyOGYuBHiUPAIxF+1lFbAoyjygj2jxEH9sA1eIZU9pZudsgzb+sTVR80XFZVGAvO1FS3dxGHTgpX9FwdNNPjI7WvOlQCJeQYJ1PF+v/e6o5fYW1QTmWe8Ei5rGvAH5WtSEH79MGYm+RKkpusvahJQaAx9eGgqNvRXNOgmVL6chFHkWyNWJKTGWFnX2PJM3/O5ftCi4K5GOj178tnUFnSgVaj/fp6gSB9cJ6UXqrSsQ=~-1~-1~-1;
-            bm_sz=9D85F35A19AD997574ED66BEBDED4DBE~YAAQpa0TAu2lxc+JAQAA6WtH8BRczXuTQCN15ymPRsowUFilu3mXqDTqRjF2XrFr6KRWiAAV9XUcsvd8rZBhSIqpgxA5TU6ZM2XHdOYiqNx89yVf6IuoZ6SBFHZqCO2aJ7o4DJxF4ifEd4YhuSpvl0tod3fpKdyCE4LLql7pOO/x8m4Y67/wFp+RAzQbxuKzJPfFNyuntffW2/xNxQe+6EGDD90VXelreSJW8Jn/3n3qEiq2emPQbYrr7ZAub1D2P0Uc7//p2OJp8cw/Xfr5glYq4+lNi0UJIKrzkQemkmYrbZ8=~3753522~3552054;
-            dzr_uniq_id=dzr_uniq_id_frb77ae8614eb8bd5b8d1183a8596c08649d19cd
+          - _abck=0F03F2D4F1929C025C1A50EC0FF998D4~-1~YAAQj2jdWPXbj86JAQAAwylj9ApmVI+fpA/hS9X4aCUjR/tVtzZilv7nAourhMgyqyPbQb9DNuLGe8R5fPmbPgyQ/pfIG8Y+YATzJiRTChWB39xekJhADn4rJ3ASwjgED3YLvN2ZL4TsK2YRY2C+7/R6Rb4z1ITXcq9qoNgJY61GKqp5TgIc6Blr8AkifWji62/byVh4+InGfZzFi6VjIiIeCxMpPw3X5litOvUlOXgsQIxADYz9+0QGC+pfHSpBD4SUyzg/rcNS0yxAJgl4YO3gIFbm5Qi9ZuZcBInSF323nrACuWmSPTr3gW40MgVqoaX4GSBXIF8/r1miI6B1jutvVFIR1gVSMNLYB0mJiLXnTFh5udd0b64=~-1~-1~-1;
+            bm_sz=450C9C988F819A9F32E17687D674E260~YAAQj2jdWPbbj86JAQAAwylj9BQIwUTLltZokCR4lN7POKj1YKWefouRTRAiE6RDq22sfE6jJl0bS/NPrfehMPgpwjyAcJCzGB0zc6jOFhyw9Lq/KzA2CWHcS8HEojkq4Psxpidwe62ogHwSR0lO/b8Y/FQm8jkoduB65UXVhZWd8b6QPHgS++iBLFbiKqCWuyO6JH9VkrAI4NCYt7C9eiYJZyFBYpBBreLsVg9lFcHtjC/sXPPBdGgXvAwYMBbAhWCseASZIeepiPeoSZ4gkXuuVFgN3mDtLZLm0ZCY0HesaZg=~4469305~4601905;
+            dzr_uniq_id=dzr_uniq_id_fr5da0e977aa06fee419cc3b3255f67d4263158a
       method: DELETE
-      uri: https://api.deezer.com/user/359622/albums?access_token=dummy&album_id=302127
+      uri: https://api.deezer.com/user/me/albums?access_token=dummy&album_id=302127
     response:
       body:
-        string:
-          '{"error":{"type":"OAuthException","message":"An active access token
-          must be used to query information about the current user","code":200}}'
+        string: "true"
       headers:
         Access-Control-Allow-Credentials:
           - "true"
@@ -159,7 +157,7 @@ interactions:
         Connection:
           - keep-alive
         Content-Length:
-          - "138"
+          - "4"
         Content-Type:
           - application/json; charset=utf-8
         Expires:
@@ -170,12 +168,10 @@ interactions:
           - Apache
         Strict-Transport-Security:
           - max-age=31536000; includeSubDomains
-        Vary:
-          - Accept-Encoding
         X-Content-Type-Options:
           - nosniff
         X-Host:
-          - blm-web-50
+          - blm-web-136
         x-org:
           - FR
       status:

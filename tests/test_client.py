@@ -247,29 +247,29 @@ class TestClient:
         with pytest.raises(DeezerErrorResponse):
             await client.get_user(-1)
 
-    # async def test_get_user_recommended_tracks(self, client_token):
-    #    tracks = await client_token.get_user_recommended_tracks()
-    #    assert isinstance(tracks, deezer.PaginatedList)
-    #    track = tracks[0]
-    #    assert isinstance(track, deezer.Track) TODO Pagination
+    async def test_get_user_recommended_tracks(self, client_token):
+        tracks = await client_token.get_user_recommended_tracks()
+        assert isinstance(tracks, deezer.PaginatedList)
+        track = tracks[0]
+        assert isinstance(track, deezer.Track)
 
-    # async def test_get_user_recommended_albums(self, client_token):
-    #     albums = await client_token.get_user_recommended_albums()
-    #     assert isinstance(albums, deezer.PaginatedList)
-    #     album = albums[0]
-    #    assert isinstance(album, deezer.Album) TODO
+    async def test_get_user_recommended_albums(self, client_token):
+        albums = await client_token.get_user_recommended_albums()
+        assert isinstance(albums, deezer.PaginatedList)
+        album = albums[0]
+        assert isinstance(album, deezer.Album)
 
-    # async def test_get_user_recommended_artists(self, client_token):
-    #     artists = await client_token.get_user_recommended_artists()
-    #     assert isinstance(artists, deezer.PaginatedList)
-    #     artist = artists[0]
-    #     assert isinstance(artist, deezer.Artist) TODO
+    async def test_get_user_recommended_artists(self, client_token):
+        artists = await client_token.get_user_recommended_artists()
+        assert isinstance(artists, deezer.PaginatedList)
+        artist = artists[0]
+        assert isinstance(artist, deezer.Artist)
 
-    # async def test_get_user_recommended_playlists(self, client_token):
-    #     playlists = await client_token.get_user_recommended_playlists()
-    #     assert isinstance(playlists, deezer.PaginatedList)
-    #     playlist = playlists[0]
-    #     assert isinstance(playlist, deezer.Playlist)TODO
+    async def test_get_user_recommended_playlists(self, client_token):
+        playlists = await client_token.get_user_recommended_playlists()
+        assert isinstance(playlists, deezer.PaginatedList)
+        playlist = playlists[0]
+        assert isinstance(playlist, deezer.Playlist)
 
     # async def test_get_user_flow(self, client_token):
     #     flow = await client_token.get_user_flow()

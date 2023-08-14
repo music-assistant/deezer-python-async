@@ -5,10 +5,10 @@ interactions:
         Accept-Encoding:
           - identity
       method: GET
-      uri: https://api.deezer.com/user/359622?access_token=dummy
+      uri: https://api.deezer.com/user/me?access_token=dummy
     response:
       body:
-        string: '{"id":359622,"name":"Bruno Alla","link":"https:\/\/www.deezer.com\/profile\/359622","picture":"https:\/\/api.deezer.com\/user\/359622\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/d4bb710fd346218d4dbb5e1a08ffde93\/1000x1000-000000-80-0-0.jpg","country":"GB","tracklist":"https:\/\/api.deezer.com\/user\/359622\/flow","type":"user"}'
+        string: '{"id":1705809182,"name":"banjon","lastname":"","firstname":"","email":"","status":2,"birthday":"0000-00-00","inscription_date":"2017-09-03","gender":"","link":"https:\/\/www.deezer.com\/profile\/1705809182","picture":"https:\/\/api.deezer.com\/user\/1705809182\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/1000x1000-000000-80-0-0.jpg","country":"DK","lang":"en","is_kid":false,"explicit_content_level":"explicit_display","explicit_content_levels_available":["explicit_display","explicit_no_recommendation","explicit_hide"],"tracklist":"https:\/\/api.deezer.com\/user\/1705809182\/flow","type":"user"}'
       headers:
         Access-Control-Allow-Credentials:
           - "true"
@@ -25,7 +25,7 @@ interactions:
         Connection:
           - keep-alive
         Content-Length:
-          - "734"
+          - "910"
         Content-Type:
           - application/json; charset=utf-8
         Expires:
@@ -41,7 +41,7 @@ interactions:
         X-Content-Type-Options:
           - nosniff
         X-Host:
-          - blm-web-130
+          - blm-web-113
         x-org:
           - FR
       status:
@@ -53,16 +53,14 @@ interactions:
         Accept-Encoding:
           - identity
         Cookie:
-          - _abck=8C060C3A560E49DB6F35FD4C7855ED7E~-1~YAAQn60TAt1fvMCJAQAA12lH8ArpkU8RtFM2GxOxfdIBT4BTXGg5WzyUU/ja2xLVFjid/9bLOuGbUXbuqJrwJ6UFkq90JCwgAAEN2AHfWec/YbO9baXhlJt6aRzUsJgQuLZLJiLf8pZ8FNz7YRrK4wqmXFA4yh+0TvdFeZfH/cA4sGbO/2zl+Te/tNNiFLfWCPiDna3vuZADL5aLnYJmkasv/lywK7L4APu3vZcw+TIVWJN9YnNp7/ioXSssbuNavbytjV+Ke453KG+kmkIVcote/Jq3Y8ijO1Q4mxskFk7m+9y7PyeZWtgJ2gntOfhw9knUMPpVqabsc7dcdqG7lNW43J9yKHRncZoxnYeFoUjYkmmwEIi6rdY=~-1~-1~-1;
-            bm_sz=B080BE5A2CCB5BE1C5CC6E44BF48214D~YAAQn60TAt5fvMCJAQAA12lH8BSVSN4KSVeNblnu+kDL4ez8bjhMTOXNeaIfFwmnfUaZxa4L1xWHszSfTPJwg58d8LabAh5iizXXFDZuxbHG+MgBKFZD5koo9ClUCalEsFjxCqeQ6BRM/24dvCULqAsdh4ciXKNC6HhQA5XA+Whwo7pVG3DV4kh4W4MYzHq2eqHwUDtWm1ckDkqGg4GP0QX5rPWbYoTDqZIIDsoqTUBztNp2KxFr2V/VgKFOdo0Ns4qyZwdmU5SDLh/KTi8siEuYEJxl0VPg5WQtBPJ7X9mUw20=~3753522~3552054;
-            dzr_uniq_id=dzr_uniq_id_fr01f9fd993de898f8467f3f04f9cb2587235aa7
+          - _abck=8CC5728CFB83F63B018BB1A56999653E~-1~YAAQfmjdWPy13r+JAQAAhCdj9AoWh2gAAAyvaeNs7ScxLLUAZHwWcnv4J/NxRX/Zj6L9kIRnuDgb6EYyYw7fbpNmkFWdhU8st2DPn/1zKs5X3FOhy0Lx+BpuM7fYsogXIyVa3pHDUQVAX4/NO+bCVN/sHJYyZ+GXakD4s0crJI8MKKGHtF/PHE9GKYYm6+piJ+y55Snu7HdXEtUfTsKvzYdL4SktVXfnt5oXNO83qT66gbUXc5XN9MU+ulzJ6K8gdfyMn7JhsQDIROABTG64xqvPL0OYVl6PTlC17KDu1GiQcA6amSh6kOF2ppDYEDk/d9OZnvI6cx7CnUCK8HJVW7/yGVabYNWakq7WgujHNoLpQQk1iW22MFg=~-1~-1~-1;
+            bm_sz=85E5099808AC413543DF175F48C67B07~YAAQfmjdWP213r+JAQAAhCdj9BQkMaOt8+G70zwKGnRPyuqGLDZwxoGwI2rAy3aREKgi9YHJisBo3vxBCd5XCqlFUdK3R2RDIR59VXV40L20Y6yQOjZqtklH65aGC+YBffQ1r9nLxfPTeWlivFJWbZZ/H5AoDYxSVIkm2TCDPVLpYErrP8NOXuzaTjKFYd6GoRKz4SbpAbVtCgPPSJtWFpKXVipzuOEFBDtJHT3TrZKwLIqCIjj1MG/ikc8fbAbRaAJdh7FyrOkYjD3m6jv1y2Gv0tOjOf+v9LXBwjYsdqU5v5I=~4469305~4601905;
+            dzr_uniq_id=dzr_uniq_id_fr15b7e301034e41b4dba1d1652553a4fd01d006
       method: POST
-      uri: https://api.deezer.com/user/359622/albums?access_token=dummy&album_id=302127
+      uri: https://api.deezer.com/user/me/albums?access_token=dummy&album_id=302127
     response:
       body:
-        string:
-          '{"error":{"type":"OAuthException","message":"An active access token
-          must be used to query information about the current user","code":200}}'
+        string: "true"
       headers:
         Access-Control-Allow-Credentials:
           - "true"
@@ -79,7 +77,7 @@ interactions:
         Connection:
           - keep-alive
         Content-Length:
-          - "138"
+          - "4"
         Content-Type:
           - application/json; charset=utf-8
         Expires:
@@ -90,12 +88,10 @@ interactions:
           - Apache
         Strict-Transport-Security:
           - max-age=31536000; includeSubDomains
-        Vary:
-          - Accept-Encoding
         X-Content-Type-Options:
           - nosniff
         X-Host:
-          - blm-web-144
+          - blm-web-124
         x-org:
           - FR
       status:

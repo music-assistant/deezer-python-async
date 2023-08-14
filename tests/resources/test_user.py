@@ -66,27 +66,23 @@ class TestUser:
         assert repr(track) == "<Track: Poney Pt. I>"
         assert len(tracks) == 3
 
-    # async def test_add_album_by_id(self, client_token, user: deezer.User):
-    #     user.client = client_token
-    #     assert await user.add_album(302127) is True TODO
+    async def test_add_album_by_id(self, current_user: deezer.User):
+        assert await current_user.add_album(302127) is True
 
-    # async def test_add_album_obj(self, client_token, user: deezer.User):
-    #     user.client = client_token
-    #     album = await deezer.Album(
-    #         client_token, json={"id": 302127, "type": "album"} TODO
-    #     ).get()
-    #     assert await user.add_album(album) is True
+    async def test_add_album_obj(self, client_token, current_user: deezer.User):
+        album = await deezer.Album(
+            client_token, json={"id": 302127, "type": "album"}
+        ).get()
+        assert await current_user.add_album(album) is True
 
-    # async def test_remove_album_by_id(self, client_token, user: deezer.User):
-    #     user.client = client_token
-    #     assert await user.remove_album(302127) is True TODO
+    async def test_remove_album_by_id(self, current_user: deezer.User):
+        assert await current_user.remove_album(302127) is True
 
-    # async def test_remove_album_obj(self, client_token, user: deezer.User):
-    #     user.client = client_token
-    #     album = await deezer.Album(
-    #         client_token, json={"id": 302127, "type": "album"}
-    #     ).get()
-    #     assert await user.remove_album(album) is True TODO
+    async def test_remove_album_obj(self, client_token, current_user: deezer.User):
+        album = await deezer.Album(
+            client_token, json={"id": 302127, "type": "album"}
+        ).get()
+        assert await current_user.remove_album(album) is True
 
     async def test_add_track_id(self, current_user: deezer.User):
         assert await current_user.add_track(3135556) is True

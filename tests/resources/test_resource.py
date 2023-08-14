@@ -41,15 +41,15 @@ class TestResource:
             track.bpm
         assert str(exc_info.value) == "'Track' object has no attribute 'bpm'"
 
-    # async def test_field_not_found(self, client):
-    #     """When field is missing an attribute error is raised without API calls."""
-    #     episode = await deezer.Episode(
-    #         client,
-    #         json={
-    #             "id": 343457312,
-    #             "type": "episode",
-    #         },
-    #     ).get()
-    #     with pytest.raises(AttributeError) as exc_info:
-    #         episode.something
-    #     assert str(exc_info.value) == "'Episode' object has no attribute 'something'" TODO
+    async def test_field_not_found(self, client):
+        """When field is missing an attribute error is raised without API calls."""
+        track = await deezer.Track(
+            client,
+            json={
+                "id": 3135556,
+                "type": "track",
+            },
+        ).get()
+        with pytest.raises(AttributeError) as exc_info:
+            track.something
+        assert str(exc_info.value) == "'Track' object has no attribute 'something'"
