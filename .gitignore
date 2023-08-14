@@ -11,6 +11,7 @@ docs/_build/
 
 #Virtualenvs
 ENV*
+.venv
 
 # Coverage
 .coveralls.yml
