@@ -99,10 +99,7 @@ class PaginatedList(Generic[ResourceType]):
 
     async def fetch(self) -> PaginatedList:
         """Function to fetch the thing"""
-        if hasattr(self.__base_params, "limit"):
-            limit = int(self.__base_params["limit"])
-        else:
-            limit = 99999
+        limit = self.__base_params.get("limit", 999999)
         while self._could_grow() and len(self.__elements) < limit:
             await self._grow()
         self._fetched = True
