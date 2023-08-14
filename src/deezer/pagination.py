@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import Generator, Generic, TypeVar, overload
+from typing import AsyncGenerator, Generator, Generic, TypeVar, overload
 from urllib.parse import parse_qs, urlparse
 
 import deezer
@@ -29,8 +29,9 @@ class PaginatedList(Generic[ResourceType]):
         self.__next_path: str | None = base_path
         self.__next_params = params
         self.__parent = parent
-        self.__total = None
         self.__iter = iter(self)
+        self._fetched = False
+        self.total = False
 
     def __repr__(self) -> str:
         repr_size = 5
@@ -51,20 +52,14 @@ class PaginatedList(Generic[ResourceType]):
         self,
         index: int | slice,
     ) -> ResourceType | list[ResourceType]:
-        if isinstance(index, int):
-            self._fetch_to_index(index)
-            return self.__elements[index]
-        if index.stop is not None:
-            self._fetch_to_index(index.stop)
-        else:
-            while self._could_grow():
-                self._grow()
         return self.__elements[index]
 
     def __iter__(self) -> Generator[ResourceType, None, None]:
         yield from self.__elements
-        while self._could_grow():
-            yield from self._grow()
+
+    async def __aiter__(self) -> AsyncGenerator[ResourceType, None]:
+        for element in self.__elements:
+            yield element
 
     def __next__(self) -> ResourceType:
         return next(self.__iter)
@@ -75,14 +70,14 @@ class PaginatedList(Generic[ResourceType]):
     def _could_grow(self) -> bool:
         return self.__next_path is not None
 
-    def _grow(self) -> list[ResourceType]:
-        new_elements = self._fetch_next_page()
+    async def _grow(self) -> list[ResourceType]:
+        new_elements = await self._fetch_next_page()
         self.__elements.extend(new_elements)
         return new_elements
 
-    def _fetch_next_page(self) -> list[ResourceType]:
+    async def _fetch_next_page(self) -> list[ResourceType]:
         assert self.__next_path is not None  # nosec B101
-        response_payload = self.__client.request(
+        response_payload = await self.__client.request(
             "GET",
             self.__next_path,
             parent=self.__parent,
@@ -90,7 +85,7 @@ class PaginatedList(Generic[ResourceType]):
             **self.__next_params,
         )
         self.__next_path = None
-        self.__total = response_payload.get("total")
+        self.total = response_payload.get("total")
         next_url = response_payload.get("next", None)
         if next_url:
             url_bits = urlparse(next_url)
@@ -98,23 +93,14 @@ class PaginatedList(Generic[ResourceType]):
             self.__next_params = parse_qs(url_bits.query)
         return response_payload["data"]
 
-    def _fetch_to_index(self, index: int):
+    async def _fetch_to_index(self, index: int):
         while len(self.__elements) <= index and self._could_grow():
-            self._grow()
+            await self._grow()
 
-    @property
-    def total(self) -> int:
-        """The total number of items in the list, mirroring what Deezer returns."""
-        if self.__total is None:
-            params = self.__base_params.copy()
-            params["limit"] = 1
-            response_payload = self.__client.request(
-                "GET",
-                self.__base_path,
-                parent=self.__parent,
-                paginate_list=True,
-                **params,
-            )
-            self.__total = response_payload["total"]
-        assert self.__total is not None  # nosec B101
-        return self.__total
+    async def fetch(self) -> PaginatedList:
+        """Function to fetch the thing"""
+        limit = self.__base_params.get("limit", 999999)
+        while self._could_grow() and len(self.__elements) < limit:
+            await self._grow()
+        self._fetched = True
+        return self

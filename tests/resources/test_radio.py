@@ -9,16 +9,16 @@ pytestmark = pytest.mark.vcr
 
 class TestRadio:
     @pytest.fixture
-    def radio(self, client):
-        return client.get_radio(23261)
+    async def radio(self, client):
+        return await client.get_radio(23261)
 
     def test_attributes(self, radio):
         assert hasattr(radio, "title")
         assert isinstance(radio, deezer.Radio)
         assert repr(radio) == "<Radio: Telegraph Classical>"
 
-    def test_get_tracks(self, radio):
-        tracks = radio.get_tracks()
+    async def test_get_tracks(self, radio):
+        tracks = await radio.get_tracks()
         assert isinstance(tracks, list)
         assert len(tracks) == 25
         track = tracks[0]

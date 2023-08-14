@@ -17,11 +17,11 @@ jobs:
       fail-fast: false
       matrix:
         python-version:
-          - "3.7"
           - "3.8"
           - "3.9"
           - "3.10"
           - "3.11"
+          - "3.12-dev"
         os:
           - ubuntu-latest
           - windows-latest
@@ -33,7 +33,7 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-      - uses: snok/install-poetry@v1.3.3
+      - uses: snok/install-poetry@v1.3.4
       - name: Install Dependencies
         run: poetry install -v
         shell: bash
@@ -49,7 +49,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      - uses: wagoid/commitlint-github-action@v5.4.1
+      - uses: wagoid/commitlint-github-action@v5.4.3
 
   release:
     runs-on: ubuntu-latest
@@ -62,15 +62,31 @@ jobs:
       - uses: actions/checkout@v3
         with:
           fetch-depth: 0
+          ref: ${{ github.head_ref || github.ref_name }}
 
+      # Do a dry run of PSR
+      - name: Test release
+        uses: relekang/python-semantic-release@v8.0.6
+        if: github.ref_name != 'main'
+        with:
+          root_options: --noop
+
+      # On main branch: actual PSR + upload to PyPI & GitHub
       - name: Release
-        uses: relekang/python-semantic-release@v7.34.1
+        uses: relekang/python-semantic-release@v8.0.6
+        id: release
         if: github.ref_name == 'main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          pypi_token: ${{ secrets.PYPI_TOKEN }}
-      - name: Test release
-        uses: relekang/python-semantic-release@v7.34.1
-        if: github.ref_name != 'main'
+
+      - name: Publish package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        if: steps.release.outputs.released == 'true'
         with:
-          additional_options: --noop
+          password: ${{ secrets.PYPI_TOKEN }}
+
+      - name: Publish package distributions to GitHub Releases
+        uses: python-semantic-release/upload-to-gh-release@main
+        if: steps.release.outputs.released == 'true'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

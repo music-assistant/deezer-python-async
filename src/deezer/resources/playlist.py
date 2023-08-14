@@ -38,35 +38,36 @@ class Playlist(Resource):
     picture_xl: str
     checksum: str
     creator: User
+    user: User
     tracks: list[Track]
 
-    def get_tracks(self, **kwargs) -> PaginatedList[Track]:
+    async def get_tracks(self, **kwargs) -> PaginatedList[Track]:
         """
         Get tracks from a playlist.
 
         :returns: a :class:`PaginatedList <deezer.PaginatedList>`
                   of :class:`Track <deezer.Track>` instances
         """
-        return self.get_paginated_list("tracks", **kwargs)
+        return await self.get_paginated_list("tracks", **kwargs)
 
-    def get_fans(self, **kwargs) -> PaginatedList[User]:
-        """
-        Get fans from a playlist.
+    # async def get_fans(self, **kwargs) -> PaginatedList[User]:
+    #     """
+    #     Get fans from a playlist.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-                  of :class:`User <deezer.User>` instances
-        """
-        return self.get_paginated_list("fans", **kwargs)
+    #     :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+    #               of :class:`User <deezer.User>` instances
+    #     """
+    #     return await self.get_paginated_list("fans", **kwargs) TODO Deezer api is broken
 
-    def mark_seen(self, **kwargs) -> bool:
+    async def mark_seen(self, **kwargs) -> bool:
         """
         Mark the playlist as seen.
 
         :returns: a boolean that tells if the operation was successful
         """
-        return self.client.request("POST", f"playlist/{self.id}/seen", **kwargs)
+        return await self.client.request("POST", f"playlist/{self.id}/seen", **kwargs)
 
-    def add_tracks(self, tracks: Iterable[int | Track], **kwargs) -> bool:
+    async def add_tracks(self, tracks: Iterable[int | Track], **kwargs) -> bool:
         """
         Add tracks to a playlist.
 
@@ -75,11 +76,11 @@ class Playlist(Resource):
         :returns: a boolean that tells if the operation was successful
         """
         track_ids_str = ",".join(str(tid) for tid in gen_ids(tracks))
-        return self.client.request(
+        return await self.client.request(
             "POST", f"playlist/{self.id}/tracks", songs=track_ids_str, **kwargs
         )
 
-    def delete_tracks(self, tracks: Iterable[int | Track], **kwargs) -> bool:
+    async def delete_tracks(self, tracks: Iterable[int | Track], **kwargs) -> bool:
         """
         Delete tracks from a playlist.
 
@@ -88,11 +89,11 @@ class Playlist(Resource):
         :returns: a boolean that tells if the operation was successful
         """
         track_ids_str = ",".join(map(str, gen_ids(tracks)))
-        return self.client.request(
+        return await self.client.request(
             "DELETE", f"playlist/{self.id}/tracks", songs=track_ids_str, **kwargs
         )
 
-    def reorder_tracks(self, order: Iterable[int | Track], **kwargs) -> bool:
+    async def reorder_tracks(self, order: Iterable[int | Track], **kwargs) -> bool:
         """
         Reorder the tracks of a playlist.
 
@@ -101,6 +102,6 @@ class Playlist(Resource):
         :returns: a boolean that tells if the operation was successful
         """
         order_track_ids_str = ",".join(map(str, gen_ids(order)))
-        return self.client.request(
+        return await self.client.request(
             "POST", f"playlist/{self.id}/tracks", order=order_track_ids_str, **kwargs
         )

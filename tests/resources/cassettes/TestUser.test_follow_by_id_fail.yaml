@@ -2,16 +2,60 @@ interactions:
   - request:
       body: null
       headers:
-        Accept:
-          - "*/*"
         Accept-Encoding:
           - identity
+      method: GET
+      uri: https://api.deezer.com/user/me?access_token=dummy
+    response:
+      body:
+        string: '{"id":1705809182,"name":"banjon","lastname":"","firstname":"","email":"","status":2,"birthday":"0000-00-00","inscription_date":"2017-09-03","gender":"","link":"https:\/\/www.deezer.com\/profile\/1705809182","picture":"https:\/\/api.deezer.com\/user\/1705809182\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/user\/\/1000x1000-000000-80-0-0.jpg","country":"DK","lang":"en","is_kid":false,"explicit_content_level":"explicit_display","explicit_content_levels_available":["explicit_display","explicit_no_recommendation","explicit_hide"],"tracklist":"https:\/\/api.deezer.com\/user\/1705809182\/flow","type":"user"}'
+      headers:
+        Access-Control-Allow-Credentials:
+          - "true"
+        Access-Control-Allow-Headers:
+          - X-Requested-With, Content-Type, Authorization, Origin, Accept, Accept-Encoding
+        Access-Control-Allow-Methods:
+          - POST, GET, OPTIONS, DELETE, PUT
+        Access-Control-Expose-Headers:
+          - Location
+        Access-Control-Max-Age:
+          - "86400"
+        Cache-Control:
+          - no-store, no-cache, must-revalidate
         Connection:
           - keep-alive
         Content-Length:
-          - "0"
-        User-Agent:
-          - python-requests/2.30.0
+          - "910"
+        Content-Type:
+          - application/json; charset=utf-8
+        Expires:
+          - Thu, 19 Nov 1981 08:52:00 GMT
+        Pragma:
+          - no-cache
+        Server:
+          - Apache
+        Strict-Transport-Security:
+          - max-age=31536000; includeSubDomains
+        Vary:
+          - Accept-Encoding
+        X-Content-Type-Options:
+          - nosniff
+        X-Host:
+          - blm-web-99
+        x-org:
+          - FR
+      status:
+        code: 200
+        message: OK
+  - request:
+      body: null
+      headers:
+        Accept-Encoding:
+          - identity
+        Cookie:
+          - _abck=84A8D3342814030DA35D863A0C4E1BA1~-1~YAAQpa0TAl+Dxc+JAQAAQeBB8Ar06jHWOWeb3yeO2x6kTzgBY/WhaNT158Vvc/XcI0u+YgWfHyNsPtXewLyuAlq80i0PJFdjknt8FpJsUS1BL2m2d3XuF+8r43Bz8IRjTZMmKgbVJ7iE2UCmsWOZQhksK8bQO7hZgdx+StnSR5CkHypZ0BiKDfb2HEvz+puKmgTMX1Mm2GBCCsUcvOzbdAEUbev+QSqrB34mVCTG2WlbebPGOUqheyBGv58AfZUh2jrzQqKJgYBzIUzGb3KNXeLOT9ibwHhxc2KtRHL8HDL/bK/ROLq/j4ZlG29Eb+K/k1Lz2HsHnY0AJwhjaDV85+7LDot38OD6eJpKxqMYFnD/IZI8n63+ofo=~-1~-1~-1;
+            bm_sz=8ECBE956B81E0122DF45CDC9A1051260~YAAQpa0TAmCDxc+JAQAAQeBB8BTvGmh+49SgBz3HaehlGp9P1MdO4aIiI+08IRB4XppPAA2MsPWWdzadgfvTQ6lc3d2ZHzOgEYlTRnJ732GsYxwiP0/qhLFAXdVQG/1Wf5W0pRqUFAr5r+Sm7wKHPDHiRaK4xRXP0VvpJlW8sAf6d5iPj+aTYLzjL7PUaCpxVt8I5Q2IDNuUVBXI7kvjA938Q5jPvoBPc0YG3O0XnF/fFJhCmwouLp6JU0EhYKtMKIyofPSvOXgGCL2SvirignykmlUxrELehSR3VXOOWejvIXQ=~3749433~4470324;
+            dzr_uniq_id=dzr_uniq_id_frceb612f08b0d285cab13fba9f41d2520656afc
       method: POST
       uri: https://api.deezer.com/user/me/followings?access_token=dummy&user_id=27
     response:
@@ -47,7 +91,7 @@ interactions:
         X-Content-Type-Options:
           - nosniff
         X-Host:
-          - blm-web-189
+          - blm-web-143
         x-org:
           - FR
       status:

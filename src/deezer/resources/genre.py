@@ -27,27 +27,27 @@ class Genre(Resource):
     picture_big: str
     picture_xl: str
 
-    def get_artists(self, **kwargs) -> list[Artist]:
+    async def get_artists(self, **kwargs) -> list[Artist]:
         """
         Get all artists for a genre.
 
         :returns: list of :class:`Artist <deezer.Artist>` instances
         """
-        return self.get_relation("artists", **kwargs)
+        return await self.get_relation("artists", **kwargs)
 
-    def get_podcasts(self, **kwargs) -> PaginatedList[Podcast]:
+    async def get_podcasts(self, **kwargs) -> PaginatedList[Podcast]:
         """
         Get all podcasts for a genre.
 
         :returns: a :class:`PaginatedList <deezer.PaginatedList>`
                   of :class:`Podcast <deezer.Podcast>` instances
         """
-        return self.get_paginated_list("podcasts", **kwargs)
+        return await self.get_paginated_list("podcasts", **kwargs)
 
-    def get_radios(self, **kwargs) -> list[Radio]:
+    async def get_radios(self, **kwargs) -> list[Radio]:
         """
         Get all radios for a genre.
 
         :returns: list of :class:`Radio <deezer.Radio>` instances
         """
-        return self.get_relation("radios", **kwargs)
+        return await self.get_relation("radios", **kwargs)

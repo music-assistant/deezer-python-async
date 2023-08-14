@@ -6,21 +6,26 @@ import deezer
 env = Env()
 env.read_env()
 
+pytest_plugins = ("pytest_asyncio",)
+
 
 @pytest.fixture()
-def client():
-    return deezer.Client(  # nosec
+async def client():
+    client = deezer.Client(  # nosec
         app_id="foo",
         app_secret="bar",
         # This is to get human-readable response output in VCR cassettes
         headers={"Accept-Encoding": "identity"},
     )
+    yield client
+    await client.session.close()
 
 
 @pytest.fixture()
-def client_token(client):
+async def client_token(client):
     client.access_token = env("API_TOKEN", "dummy")
-    return client
+    yield client
+    await client.session.close()
 
 
 @pytest.fixture(scope="module", autouse=True)

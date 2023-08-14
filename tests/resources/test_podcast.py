@@ -8,10 +8,10 @@ pytestmark = pytest.mark.vcr
 
 
 class TestPodcast:
-    def test_get_episodes(self, client):
-        podcast = client.get_podcast(699612)
+    async def test_get_episodes(self, client):
+        podcast = await client.get_podcast(699612)
 
-        episodes = podcast.get_episodes()
+        episodes = await podcast.get_episodes()
         assert isinstance(episodes, deezer.PaginatedList)
         episode = episodes[0]
         assert isinstance(episode, deezer.Episode)
