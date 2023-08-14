@@ -41,14 +41,14 @@ class Playlist(Resource):
     user: User
     tracks: list[Track]
 
-    async def get_tracks(self, **kwargs) -> PaginatedList[Track]:
-        """
-        Get tracks from a playlist.
+    # async def get_tracks(self, **kwargs) -> PaginatedList[Track]:
+    #     """
+    #     Get tracks from a playlist.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-                  of :class:`Track <deezer.Track>` instances
-        """
-        return await self.get_paginated_list("tracks", **kwargs)
+    #     :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+    #               of :class:`Track <deezer.Track>` instances
+    #     """
+    #     return await self.get_paginated_list("tracks", **kwargs) # TODO Deezer api is broken
 
     async def get_fans(self, **kwargs) -> PaginatedList[User]:
         """
