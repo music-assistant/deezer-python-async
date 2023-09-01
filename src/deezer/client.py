@@ -76,7 +76,7 @@ class Client:
         self.app_secret = app_secret
         self.access_token = access_token
         self.session = aiohttp.ClientSession()
-        self.throttler = Throttler(rate_limit=50, period=5)
+        self.throttler = Throttler(rate_limit=49, period=5)
 
         headers = headers or {}
         self.session.headers.update(headers)
