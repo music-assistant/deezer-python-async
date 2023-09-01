@@ -34,6 +34,7 @@ class PaginatedList(Generic[ResourceType]):
         self.total = False
 
     def __repr__(self) -> str:
+        """Convenient representation giving a preview of the content."""
         repr_size = 5
         data: list[ResourceType | str] = list(self[: repr_size + 1])
         if len(data) > repr_size:
@@ -52,19 +53,24 @@ class PaginatedList(Generic[ResourceType]):
         self,
         index: int | slice,
     ) -> ResourceType | list[ResourceType]:
+        """Get an item or a slice of items from the list."""
         return self.__elements[index]
 
     def __iter__(self) -> Generator[ResourceType, None, None]:
+        """Iterate over the internal, fetching new pages as needed."""
         yield from self.__elements
 
     async def __aiter__(self) -> AsyncGenerator[ResourceType, None]:
+        """Iterate over the internal, fetching new pages as needed. Async."""
         for element in self.__elements:
             yield element
 
     def __next__(self) -> ResourceType:
+        """Get the next item from the list."""
         return next(self.__iter)
 
     def __len__(self) -> int:
+        """Get the total number of items across all pages."""
         return self.total
 
     def _could_grow(self) -> bool:
@@ -76,7 +82,7 @@ class PaginatedList(Generic[ResourceType]):
         return new_elements
 
     async def _fetch_next_page(self) -> list[ResourceType]:
-        assert self.__next_path is not None  # nosec B101
+        assert self.__next_path is not None  # noqa S101
         response_payload = await self.__client.request(
             "GET",
             self.__next_path,
@@ -98,7 +104,7 @@ class PaginatedList(Generic[ResourceType]):
             await self._grow()
 
     async def fetch(self) -> PaginatedList:
-        """Function to fetch the thing"""
+        """Function to fetch the thing."""
         limit = int(self.__base_params.get("limit", 999999))
         while self._could_grow() and len(self.__elements) < limit:
             await self._grow()

@@ -11,9 +11,10 @@ pytest_plugins = ("pytest_asyncio",)
 
 @pytest.fixture()
 async def client():
-    client = deezer.Client(  # nosec
+    """Create an unauthenticated client for tests."""
+    client = deezer.Client(
         app_id="foo",
-        app_secret="bar",
+        app_secret="bar",  # noqa S106
         # This is to get human-readable response output in VCR cassettes
         headers={"Accept-Encoding": "identity"},
     )
@@ -23,6 +24,7 @@ async def client():
 
 @pytest.fixture()
 async def client_token(client):
+    """Create an authenticated client for tests."""
     client.access_token = env("API_TOKEN", "dummy")
     yield client
     await client.session.close()
@@ -30,6 +32,7 @@ async def client_token(client):
 
 @pytest.fixture(scope="module", autouse=True)
 def vcr_config():
+    """Clean up some headers from cassettes."""
     return {
         "filter_query_parameters": [("access_token", "dummy")],
         "before_record_response": _clean_response,

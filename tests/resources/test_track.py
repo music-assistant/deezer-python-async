@@ -9,9 +9,7 @@ pytestmark = pytest.mark.vcr
 
 class TestTrack:
     async def test_track_attributes(self, client):
-        """
-        Test track resource
-        """
+        """Test track resource."""
         track = await client.get_track(3135556)
         artist = await track.get_artist()
         album = await track.get_album()

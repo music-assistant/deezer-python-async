@@ -12,7 +12,7 @@ class TestClient:
     # async def test_access_token_set(self, client, mocker):
     #     """Test that access token is set when making the request."""
     #     session_get = mocker.patch.object(aiohttp.ClientSession, "request")
-    #     client.access_token = "token"
+    #     client.access_token = "token"  # S105
     #     assert client.access_token, "token"
     #     await client.request("GET", "user/me")
     #     session_get.assert_called_with(
@@ -31,17 +31,17 @@ class TestClient:
             await client.request("GET", "chart")
 
     async def test_get_album(self, client):
-        """Test method to retrieve an album"""
+        """Test method to retrieve an album."""
         album = await client.get_album(302127)
         assert isinstance(album, deezer.Album)
 
     async def test_no_album_raise(self, client):
-        """Test method get_album for invalid value"""
+        """Test method get_album for invalid value."""
         with pytest.raises(DeezerErrorResponse):
             await client.get_album(-1)
 
     async def test_get_artist(self, client):
-        """Test methods to get an artist"""
+        """Test methods to get an artist."""
         artist = await client.get_artist(27)
         assert isinstance(artist, deezer.Artist)
 
@@ -136,81 +136,81 @@ class TestClient:
         assert isinstance(result[0], deezer.Podcast)
 
     async def test_get_editorial(self, client):
-        """Test methods to get an editorial"""
+        """Test methods to get an editorial."""
         editorial = await client.get_editorial(0)
         assert isinstance(editorial, deezer.Editorial)
 
     async def test_no_editorial_raise(self, client):
-        """Test method get_editorial for invalid value"""
+        """Test method get_editorial for invalid value."""
         with pytest.raises(DeezerErrorResponse):
             await client.get_editorial(-1)
 
     async def test_list_editorials(self, client):
-        """Test methods to list editorials"""
+        """Test methods to list editorials."""
         editorials = await client.list_editorials()
         assert isinstance(editorials, deezer.PaginatedList)
         assert isinstance(editorials[0], deezer.Editorial)
         assert len(editorials) == 22
 
     async def test_get_episode(self, client):
-        """Test methods to get an episode"""
+        """Test methods to get an episode."""
         episode = await client.get_episode(238455362)
         assert isinstance(episode, deezer.Episode)
 
     async def test_no_episode_raise(self, client):
-        """Test method get_episode for invalid value"""
+        """Test method get_episode for invalid value."""
         with pytest.raises(DeezerErrorResponse):
             await client.get_episode(-1)
 
     async def test_get_genre(self, client):
-        """Test methods to get a genre"""
+        """Test methods to get a genre."""
         genre = await client.get_genre(106)
         assert isinstance(genre, deezer.Genre)
 
     async def test_no_genre_raise(self, client):
-        """Test method get_genre for invalid value"""
+        """Test method get_genre for invalid value."""
         with pytest.raises(DeezerErrorResponse):
             await client.get_genre(-1)
 
     async def test_list_genres(self, client):
-        """Test methods to list several genres"""
+        """Test methods to list several genres."""
         genres = await client.list_genres()
         assert isinstance(genres, list)
         assert len(genres) == 23
         assert isinstance(genres[0], deezer.Genre)
 
     async def test_get_playlist(self, client):
-        """Test methods to get a playlist"""
+        """Test methods to get a playlist."""
         playlist = await client.get_playlist(908622995)
         assert isinstance(playlist, deezer.Playlist)
 
     async def test_no_playlist_raise(self, client):
-        """Test method get_playlist for invalid value"""
+        """Test method get_playlist for invalid value."""
         with pytest.raises(DeezerErrorResponse):
             await client.get_playlist(-1)
 
     async def test_get_podcast(self, client):
-        """Test methods to get a podcast"""
+        """Test methods to get a podcast."""
         podcast = await client.get_podcast(699612)
         assert isinstance(podcast, deezer.Podcast)
 
     async def test_no_podcast_raise(self, client):
-        """Test method get_podcast for invalid value"""
+        """Test method get_podcast for invalid value."""
         with pytest.raises(DeezerErrorResponse):
             await client.get_podcast(-1)
 
     async def test_get_radio(self, client):
-        """Test methods to get a radio"""
+        """Test methods to get a radio."""
         radio = await client.get_radio(23261)
         assert isinstance(radio, deezer.Radio)
 
     async def test_no_radio_raise(self, client):
-        """Test method get_radio for invalid value"""
+        """Test method get_radio for invalid value."""
         with pytest.raises(DeezerErrorResponse):
             await client.get_radio(-1)
 
     async def test_list_radios(self, client):
-        """Test methods to list radios"""
+        """Test methods to list radios."""
         radios = await client.list_radios()
         assert isinstance(radios, list)
         assert len(radios) == 115
@@ -223,27 +223,27 @@ class TestClient:
         assert len(radios) == 20
 
     async def test_get_track(self, client):
-        """Test methods to get a track"""
+        """Test methods to get a track."""
         track = await client.get_track(3135556)
         assert isinstance(track, deezer.Track)
 
     async def test_no_track_raise(self, client):
-        """Test method get_track for invalid value"""
+        """Test method get_track for invalid value."""
         with pytest.raises(DeezerErrorResponse):
             await client.get_track(-1)
 
     async def test_get_user(self, client):
-        """Test methods to get a user"""
+        """Test methods to get a user."""
         user = await client.get_user(359622)
         assert isinstance(user, deezer.User)
 
     async def test_get_current_user(self, client_token):
-        """Test methods to get the current user"""
+        """Test methods to get the current user."""
         user = await client_token.get_user()
         assert isinstance(user, deezer.User)
 
     async def test_no_user_raise(self, client):
-        """Test method get_user for invalid value"""
+        """Test method get_user for invalid value."""
         with pytest.raises(DeezerErrorResponse):
             await client.get_user(-1)
 
@@ -425,7 +425,7 @@ class TestClient:
         assert result is True
 
     async def test_search_simple(self, client):
-        """Test search method"""
+        """Test search method."""
         result = await client.search("Soliloquy")
         assert isinstance(result, deezer.PaginatedList)
         first = result[0]
@@ -466,21 +466,21 @@ class TestClient:
         assert len(result) == 307
 
     async def test_search_advanced_simple(self, client):
-        """Test advanced search with one term"""
+        """Test advanced search with one term."""
         result = await client.search(artist="Lou Doillon")
         assert isinstance(result, deezer.PaginatedList)
         assert result[0].title == "Left Behind"
         assert len(result) == 114
 
     async def test_search_advanced_multiple(self, client):
-        """Test advanced search with two term"""
+        """Test advanced search with two term."""
         result = await client.search(artist="Lou Doillon", album="Lay Low")
         assert isinstance(result, deezer.PaginatedList)
         assert result[0].title == "Where To Start"
         assert len(result) == 22
 
     async def test_search_albums(self, client):
-        """Test search for albums"""
+        """Test search for albums."""
         result = await client.search_albums("Daft Punk")
         assert isinstance(result, deezer.PaginatedList)
         first = result[0]
@@ -489,7 +489,7 @@ class TestClient:
         assert len(result) == 294
 
     async def test_search_artists(self, client):
-        """Test search for artists"""
+        """Test search for artists."""
         result = await client.search_artists("Daft Punk")
         assert isinstance(result, deezer.PaginatedList)
         first = result[0]
@@ -498,7 +498,7 @@ class TestClient:
         assert len(result) == 5
 
     async def test_search_playlists(self, client):
-        """Test search for playlists"""
+        """Test search for playlists."""
         result = await client.search_playlists("Daft Punk")
         assert isinstance(result, deezer.PaginatedList)
         first = result[0]
