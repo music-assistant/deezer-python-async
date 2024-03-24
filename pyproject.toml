@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "deezer-python-async"
-version = "0.2.0"
+version = "0.3.0"
 description = "A friendly wrapper library for the Deezer API but async"
 authors = ["Music assistant team <info@music-assistant.io>"]
 license = "MIT"
