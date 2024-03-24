@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "deezer-python"
+name = "deezer-python-async"
 version = "0.1.4"
-description = "A friendly wrapper library for the Deezer API"
-authors = ["Bruno Alla <alla.brunoo@gmail.com>"]
+description = "A friendly wrapper library for the Deezer API but async"
+authors = ["Music assistant team <info@music-assistant.io>"]
 license = "MIT"
 readme = "README.md"
 keywords = ["deezer", "sdk", "client", "aiohttp"]
-repository = "https://github.com/browniebroke/deezer-python"
+repository = "https://github.com/music-assistant/deezer-python-async"
 documentation = "https://deezer-python.readthedocs.io"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -21,7 +21,7 @@ packages = [
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/browniebroke/deezer-python/issues"
+"Bug Tracker" = "https://github.com/music-assistant/deezer-python-async"
 "Changelog" = "https://deezer-python.readthedocs.io/en/latest/changelog.html"
 "Twitter" = "https://twitter.com/_BrunoAlla"
 "Mastodon" = "https://fosstodon.org/@browniebroke"

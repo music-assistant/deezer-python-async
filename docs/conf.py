@@ -48,7 +48,7 @@ source_suffix = [".rst", ".md"]
 master_doc = "index"
 
 # General information about the project.
-project = "deezer-python"
+project = "deezer-python-async"
 copyright = f"{date.today().year}, Bruno Alla"
 
 # The version info for the project you're documenting, acts as replacement for
