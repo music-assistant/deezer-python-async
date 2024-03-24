@@ -1,21 +1,5 @@
 # CHANGELOG
 
-## v6.1.1 (2023-10-18)
-
-### Fix
-
-- Potential unset response attribute on httperror ([`82a47be`](https://github.com/browniebroke/deezer-python/commit/82a47be50f5609a80f0f48a53d01971f7dce362d))
-
-## v6.1.0 (2023-08-07)
-
-### Feature
-
-- Add official support for python 3.12 (#791) ([`2eead31`](https://github.com/browniebroke/deezer-python/commit/2eead316d78128c85d365b664c2e3a926c65913a))
-
-### Documentation
-
-- Switch to furo theme (#766) ([`51cfb08`](https://github.com/browniebroke/deezer-python/commit/51cfb082c0df50a8726e1ae26ebfeca389e5d952))
-
 ## v6.0.0 (2023-06-27)
 
 ### Feature
