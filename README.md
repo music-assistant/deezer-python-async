@@ -1,4 +1,4 @@
-# Deezer Python Client
+# Deezer Python Async Client 
 
 <p align="center">
   <a href="https://github.com/browniebroke/deezer-python/actions/workflows/ci.yml?query=branch%3Amain">
