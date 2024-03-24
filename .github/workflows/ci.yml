@@ -41,7 +41,9 @@ jobs:
         run: poetry run pytest --cov-report=xml
         shell: bash
       - name: Upload coverage report
-        uses: codecov/codecov-action@v3.1.6
+        uses: codecov/codecov-action@v4.1.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   commitlint:
     runs-on: ubuntu-latest
@@ -71,14 +73,14 @@ jobs:
 
       # Do a dry run of PSR
       - name: Test release
-        uses: python-semantic-release/python-semantic-release@v8.7.2
+        uses: python-semantic-release/python-semantic-release@v9.3.1
         if: github.ref_name != 'main'
         with:
           root_options: --noop
 
       # On main branch: actual PSR + upload to PyPI & GitHub
       - name: Release
-        uses: python-semantic-release/python-semantic-release@v8.7.2
+        uses: python-semantic-release/python-semantic-release@v9.3.1
         id: release
         if: github.ref_name == 'main'
         with:
